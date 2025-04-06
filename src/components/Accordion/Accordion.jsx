@@ -17,6 +17,9 @@ const CustomAccordion = () => {
         color: "white",
         paddingInline: "0.2rem",
         paddingBlock: "0.4rem",
+        "&.Mui-expanded": {
+          margin: 0, // removes margin when expanded
+        },
       }}
     >
       <AccordionSummary
@@ -25,7 +28,7 @@ const CustomAccordion = () => {
         }
         aria-controls="panel1-content"
         id="panel1-header"
-        sx={{ fontFamily: "Outfit", margin: 0 }}
+        sx={{ fontFamily: "Outfit" }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <Box
