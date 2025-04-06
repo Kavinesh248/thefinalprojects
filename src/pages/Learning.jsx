@@ -15,7 +15,7 @@ const Learning = function () {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.4rem] font-medium sm:text-[1.6rem]">
+          <button className="flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.4rem] font-medium sm:text-[1.5rem]">
             <span>Contact Us</span>
             <ion-icon name="logo-whatsapp"></ion-icon>
           </button>

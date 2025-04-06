@@ -32,7 +32,7 @@ const Sidebar = function ({
           <ion-icon name="home"></ion-icon>
           <span>Dashboard</span>
         </li>
-        <li className="list">
+        <li className="list" onClick={() => handleNavigation("/mylearning")}>
           <ion-icon name="play"></ion-icon>
           <span>My Learning</span>
         </li>
