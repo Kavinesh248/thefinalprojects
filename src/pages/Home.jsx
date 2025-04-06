@@ -1,0 +1,44 @@
+import { Outlet, useLocation } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+import Sidebar from "../components/Sidebar/Sidebar";
+import { useEffect, useState } from "react";
+import Welcome from "../components/Welcome/Welcome";
+
+const Home = function () {
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (isSidebarVisible) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isSidebarVisible]);
+
+  return (
+    <main className="min-h-screen bg-black lg:grid lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr]">
+      <Navbar
+        setIsSidebarVisible={setIsSidebarVisible}
+        isOverlayVisible={isOverlayVisible}
+        setIsOverlayVisible={setIsOverlayVisible}
+      />
+      <Sidebar
+        isVisible={isSidebarVisible}
+        setIsSidebarVisible={setIsSidebarVisible}
+        setIsOverlayVisible={setIsOverlayVisible}
+      />
+      <article className="p-8 md:p-12 xl:px-28 xl:py-6">
+        {location.pathname === "/dashboard" && <Welcome />}
+        <Outlet />
+      </article>
+    </main>
+  );
+};
+
+export default Home;

@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Devonshire&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hentaigana:wght@200..900&family=Outfit:wght@100..900&family=Parisienne&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg-primary: #000;
+    --bg-secondary: #1e1e1e;
+    --bg--primary-orange: #e47112;
+    --bg--primary-gray: #4b4947;
+    --text-secondary: #ffffff73;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+  }
+
+  .icon {
+    @apply h-[2.2rem] w-[2.2rem] cursor-pointer sm:h-[2.8rem] sm:w-[2.8rem];
+  }
+
+  .pointer {
+    @apply cursor-pointer;
+  }
+
+  .list {
+    @apply flex cursor-pointer items-center gap-[1rem] rounded-sm p-4;
+  }
+
+  .listActive {
+    @apply bg-black;
+  }
+
+  .btn {
+    @apply flex cursor-pointer items-center justify-center gap-[.5rem] rounded-md bg-[#e47112] py-2;
+  }
+
+  .customTabPanel {
+    @apply p-0 text-[1.5rem] font-semibold;
+  }
+}
