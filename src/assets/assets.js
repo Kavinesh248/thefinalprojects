@@ -1,4 +1,4 @@
-import logo from "./logo-text-2.svg";
+import logo from "./logoOrange.png";
 import contentImg from "./full_stack_thumb.png";
 import mlImage from "./machine.jpg";
 import aiImage from "./ai.webp";

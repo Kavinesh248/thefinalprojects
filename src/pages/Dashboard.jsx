@@ -4,7 +4,7 @@ import Welcome from "../components/Welcome/Welcome";
 
 const Dashboard = function () {
   return (
-    <div className="text-white md:py-4 lg:py-4 xl:px-28 xl:py-20">
+    <div className="text-white md:py-4 lg:py-4 xl:px-28 xl:py-8">
       <Welcome />
       <h1 className="mb-4 text-[1.6rem] font-medium sm:mb-6 md:text-[2rem] lg:mb-6 xl:text-[2rem]">
         Project Categories
