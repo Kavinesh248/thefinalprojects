@@ -14,6 +14,12 @@ const Dashboard = function () {
         />
         <CategoryCard category="AI Projects 🤖" img={assets.aiImage} />
         <CategoryCard category="ML Projects 🦾" img={assets.mlImage} />
+        <CategoryCard category="Python Projects 🐍" img={assets.python} />
+        <CategoryCard category="PHP Projects 🅿️" img={assets.php} />
+        <CategoryCard
+          category="Deep Learning Projects 📖"
+          img={assets.deepLearning}
+        />
       </div>
     </div>
   );

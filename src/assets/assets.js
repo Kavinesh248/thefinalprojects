@@ -5,6 +5,9 @@ import aiImage from "./ai.webp";
 import webDevImage from "./webdev.png";
 import laptop from "./laptop.png";
 import demoVideo1 from "./video_demo.mp4";
+import python from "./python.png";
+import deepLearning from "./deep.jpeg";
+import php from "./php.png";
 
 export const assets = {
   logo,
@@ -14,4 +17,7 @@ export const assets = {
   webDevImage,
   laptop,
   demoVideo1,
+  python,
+  deepLearning,
+  php,
 };
