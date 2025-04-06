@@ -6,7 +6,7 @@ import webDevImage from "./webdev.png";
 import laptop from "./laptop.png";
 import demoVideo1 from "./video_demo.mp4";
 import python from "./python.png";
-import deepLearning from "./deep.jpeg";
+import deepLearning from "./deepLearning.jpg";
 import php from "./php.png";
 
 export const assets = {

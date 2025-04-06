@@ -1,13 +1,11 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { useEffect, useState } from "react";
-import Welcome from "../components/Welcome/Welcome";
 
 const Home = function () {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     if (isSidebarVisible) {
@@ -33,8 +31,7 @@ const Home = function () {
         setIsSidebarVisible={setIsSidebarVisible}
         setIsOverlayVisible={setIsOverlayVisible}
       />
-      <article className="p-8 md:p-12 xl:px-28 xl:py-6">
-        {location.pathname === "/dashboard" && <Welcome />}
+      <article className="p-8 md:p-12 xl:py-6">
         <Outlet />
       </article>
     </main>

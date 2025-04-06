@@ -33,7 +33,7 @@ const Navbar = ({
         ></div>
       )}
 
-      <header className="col-span-3 flex justify-between bg-[var(--bg-secondary)] p-6 text-white sm:p-8 lg:col-start-2 lg:gap-8 lg:border-b-[.0004rem] lg:border-b-[var(--bg--primary-gray)] lg:bg-black lg:px-12 lg:py-10 xl:px-19">
+      <header className="col-span-3 flex justify-between bg-[var(--bg-secondary)] p-6 text-white sm:p-8 lg:col-start-2 lg:gap-8 lg:border-b-[.0004rem] lg:border-b-[var(--bg--primary-gray)] lg:bg-black lg:px-12 lg:py-8 xl:px-19">
         <div className="flex items-center gap-4 md:gap-6 lg:hidden">
           <ion-icon
             name="menu-outline"

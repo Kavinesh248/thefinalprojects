@@ -16,7 +16,7 @@ const Sidebar = function ({
 
   return (
     <div
-      className={`absolute h-full w-[20rem] py-12 sm:w-[25rem] md:w-[30rem] lg:relative lg:row-span-2 lg:row-start-1 lg:w-[28rem] lg:-translate-x-0 lg:py-16 ${isVisible ? `-translate-x-0` : `-translate-x-full`} top-0 left-0 z-999 flex flex-col items-center rounded-tr-4xl bg-[var(--bg-secondary)] text-white transition-transform duration-300 ease-in-out`}
+      className={`absolute h-full w-[20rem] py-12 sm:w-[25rem] md:w-[30rem] lg:relative lg:row-span-2 lg:row-start-1 lg:w-[24rem] lg:-translate-x-0 lg:py-16 ${isVisible ? `-translate-x-0` : `-translate-x-full`} top-0 left-0 z-999 flex flex-col items-center rounded-tr-4xl bg-[var(--bg-secondary)] text-white transition-transform duration-300 ease-in-out`}
     >
       <img
         src={assets.logo}

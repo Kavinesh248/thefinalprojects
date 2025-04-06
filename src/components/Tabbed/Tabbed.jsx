@@ -44,7 +44,15 @@ const Tabbed = function () {
         <TabPanel
           value="1"
           className="customTabPanel"
-          sx={{ padding: "1.8rem", maxHeight: "300px", overflowY: "auto" }}
+          sx={{
+            padding: "1.8rem",
+            maxHeight: "300px",
+            overflowY: "auto",
+            fontSize: {
+              xs: "1.4rem",
+              sm: "1.6rem",
+            },
+          }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugiat
           libero, sapiente ipsa ab at ex eos alias illo.
@@ -63,7 +71,8 @@ const Tabbed = function () {
               display: "none",
             },
             gridTemplateColumns: {
-              sm: "1fr 1fr", // 2 columns on small screens and up
+              sm: "1fr 1fr",
+              lg: "1fr 1fr 1fr",
             },
           }}
         >
