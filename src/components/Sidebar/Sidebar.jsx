@@ -16,7 +16,11 @@ const Sidebar = function ({
 
   return (
     <div
-      className={`absolute h-full w-[20rem] py-12 sm:w-[25rem] md:w-[30rem] lg:relative lg:row-span-2 lg:row-start-1 lg:w-[24rem] lg:-translate-x-0 lg:py-16 ${isVisible ? `-translate-x-0` : `-translate-x-full`} top-0 left-0 z-999 flex flex-col items-center rounded-tr-4xl bg-[var(--bg-secondary)] text-white transition-transform duration-300 ease-in-out`}
+      className={`flex h-screen w-[20rem] flex-col items-center rounded-tr-4xl bg-[var(--bg-secondary)] py-12 text-white transition-transform duration-300 ease-in-out sm:w-[25rem] md:w-[30rem] lg:w-[24rem] lg:py-16 ${
+        isVisible
+          ? "absolute top-0 left-0 z-999 -translate-x-0"
+          : "absolute -translate-x-full"
+      } lg:sticky lg:top-0 lg:z-20 lg:row-span-2 lg:row-start-1 lg:translate-x-0`}
     >
       <img
         src={assets.logo}
