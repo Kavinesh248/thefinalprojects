@@ -43,7 +43,7 @@
   }
 
   .listActive {
-    @apply bg-black;
+    @apply bg-[#121212];
   }
 
   .btn {
