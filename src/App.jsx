@@ -9,6 +9,7 @@ import Learning from "./pages/Learning";
 import FutureProject from "./pages/FutureProject";
 import Home from "./pages/Home";
 import ErrorPage from "./pages/Error";
+import ReferralProgram from "./pages/ReferralProgram";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "dashboard", element: <Dashboard /> },
       { path: "mylearning", element: <Learning /> },
       { path: "futureprojects", element: <FutureProject /> },
+      { path: "referral", element: <ReferralProgram /> },
     ],
   },
   {

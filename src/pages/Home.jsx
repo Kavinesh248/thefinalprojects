@@ -20,14 +20,14 @@ const Home = function () {
   }, [isSidebarVisible]);
 
   return (
-    <main className="h-full bg-black lg:grid lg:grid-cols-[24rem_1fr]">
+    <main className="h-full min-h-screen bg-black lg:grid lg:grid-cols-[24rem_1fr]">
       <Sidebar
         isVisible={isSidebarVisible}
         setIsSidebarVisible={setIsSidebarVisible}
         setIsOverlayVisible={setIsOverlayVisible}
       />
 
-      <div className="flex flex-col">
+      <div className="h-full lg:flex lg:flex-col">
         <div className="sticky top-0 z-10">
           <Navbar
             setIsSidebarVisible={setIsSidebarVisible}

@@ -1,5 +1,5 @@
 const FutureProject = function () {
-  return <div></div>;
+  return <div>future projects</div>;
 };
 
 export default FutureProject;
