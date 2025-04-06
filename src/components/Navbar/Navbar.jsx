@@ -47,7 +47,6 @@ const Navbar = ({
           />
           <ion-icon name="search-outline" className="icon" />
         </div>
-        hi
         <Input />
         <aside className="flex items-center gap-4 md:gap-7 lg:basis-[40%] lg:justify-end xl:gap-10">
           <div className="relative">
