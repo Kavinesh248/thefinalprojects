@@ -24,7 +24,7 @@ const ProjectVideoCard = function () {
 
       <div className="mt-4 p-2">
         <h1 className="font-md text-[1.4rem]">LAB</h1>
-        <p className="text-[1.4rem] text-[var(--bg--primary-orange)]">
+        <p className="text-[1.4rem] text-[var(--bg--primary-orange)] sm:text-[1.6rem]">
           Connect with SNA Lab
         </p>
 

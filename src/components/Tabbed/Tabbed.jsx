@@ -19,18 +19,21 @@ const Tabbed = function () {
             aria-label="lab API tabs example"
             sx={{
               "& .MuiTabs-indicator": {
-                backgroundColor: "orange",
+                backgroundColor: "var(--bg--primary-orange)",
                 height: "2.4px",
               },
               "& .MuiTab-root": {
                 fontFamily: "Outfit",
-                fontSize: "1.4rem",
+                fontSize: {
+                  xs: "1.4rem",
+                  sm: "1.6rem",
+                },
                 color: "white",
                 textTransform: "none",
                 fontWeight: 500,
               },
               "& .Mui-selected": {
-                color: "orange",
+                color: "var(--bg--primary-orange)",
               },
             }}
           >
@@ -58,6 +61,9 @@ const Tabbed = function () {
             scrollbarWidth: "none",
             "&::-webkit-scrollbar": {
               display: "none",
+            },
+            gridTemplateColumns: {
+              sm: "1fr 1fr", // 2 columns on small screens and up
             },
           }}
         >
