@@ -7,7 +7,7 @@ const Learning = function () {
     <div className="xl:grid xl:grid-cols-[1fr_1fr_1fr] xl:grid-rows-[auto_1fr] xl:gap-[1.8rem]">
       <div className="col-span-2 text-white">
         <div className="mb-16 flex items-center justify-between text-white">
-          <h1 className="text-[1.6rem] font-semibold text-white sm:text-[1.8rem] md:text-[2rem]">
+          <h1 className="text-[1.6rem] font-semibold text-white sm:text-[1.8rem] md:text-[2rem] xl:text-[2.4rem]">
             Web Development
           </h1>
 
@@ -16,7 +16,7 @@ const Learning = function () {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.4rem] font-medium sm:text-[1.5rem]">
+            <button className="flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.4rem] font-medium sm:text-[1.5rem] xl:text-[1.6rem]">
               <span>Contact Us</span>
               <ion-icon name="logo-whatsapp"></ion-icon>
             </button>
@@ -28,7 +28,7 @@ const Learning = function () {
             controls
             className="mb-4 w-full"
           ></video>
-          <h1 className="text-[1.6rem] font-semibold text-white sm:text-[1.8rem]">
+          <h1 className="text-[1.6rem] font-semibold text-white sm:text-[1.8rem] md:mt-4 xl:text-[2.4rem]">
             Motion Technology Web Development
           </h1>
         </div>

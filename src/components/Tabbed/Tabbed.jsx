@@ -32,7 +32,7 @@ const Tabbed = function () {
                 textTransform: "none",
                 fontWeight: 500,
               },
-              "& .Mui-selected": {
+              "& .MuiTab-root.Mui-selected": {
                 color: "var(--bg--primary-orange)",
               },
             }}
@@ -51,11 +51,16 @@ const Tabbed = function () {
             fontSize: {
               xs: "1.4rem",
               sm: "1.6rem",
+              md: "1.8rem",
+              fontWeight: 400,
             },
           }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugiat
-          libero, sapiente ipsa ab at ex eos alias illo.
+          libero, sapiente ipsa ab at ex eos alias illo. Lorem ipsum dolor sit
+          amet consectetur adipi sicing elit. Aut asperiores veritatis quibusdam
+          suscipit fugit illum officia aliquid repudiandae? Veniam voluptate
+          officiis magnam corporis voluptates dolore?
         </TabPanel>
         <TabPanel
           value="2"
@@ -72,7 +77,8 @@ const Tabbed = function () {
             },
             gridTemplateColumns: {
               sm: "1fr 1fr",
-              lg: "1fr 1fr 1fr",
+              lg: "repeat(3, 1fr)",
+              xl: "repeat(4, 1fr)",
             },
           }}
         >
