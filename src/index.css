@@ -53,4 +53,8 @@
   .customTabPanel {
     @apply p-0 text-[1.5rem] font-semibold;
   }
+
+  .customToast {
+    @apply text-[2.8rem];
+  }
 }

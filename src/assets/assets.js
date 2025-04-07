@@ -3,6 +3,8 @@ import contentImg from "./full_stack_thumb.png";
 import mlImage from "./machine.jpg";
 import aiImage from "./ai.webp";
 import webDevImage from "./webdev.png";
+import security from "./security.jpeg";
+import marketing from "./marketing.avif";
 import laptop from "./laptop.png";
 import demoVideo1 from "./video_demo.mp4";
 import python from "./python.png";
@@ -20,4 +22,6 @@ export const assets = {
   python,
   deepLearning,
   php,
+  security,
+  marketing,
 };
