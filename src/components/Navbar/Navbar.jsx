@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { assets } from "../../assets/assets";
 import NotificationDropDown from "../NotificationDropDown/NotificationDropDown";
 import UserDropdown from "../UserDropdown/UserDropdown";
 import Input from "../Input/Input";
+import useClickOutside from "../../utils/useClickOutside";
 
 const Navbar = ({
   setIsSidebarVisible,
@@ -11,6 +12,12 @@ const Navbar = ({
 }) => {
   const [isNotificationVisible, setIsNotificationVisible] = useState(false);
   const [isLoginCardVisible, setIsLoginCardVisible] = useState(false);
+
+  const notificationRef = useRef(null);
+  useClickOutside(notificationRef, () => setIsNotificationVisible(false));
+
+  const loginCardRef = useRef(null);
+  useClickOutside(loginCardRef, () => setIsLoginCardVisible(false));
 
   const closeAllDropdowns = () => {
     setIsNotificationVisible(false);
@@ -47,27 +54,23 @@ const Navbar = ({
           />
           <ion-icon name="search-outline" className="icon" />
         </div>
+
         <Input />
+
         <aside className="flex items-center gap-4 md:gap-7 lg:basis-[40%] lg:justify-end xl:gap-10">
-          <div className="relative">
+          <div className="relative" ref={notificationRef}>
             <ion-icon
               name="notifications-outline"
               className="mt-2 h-[1.7rem] w-[1.7rem] cursor-pointer sm:h-[1.8rem] sm:w-[1.8rem] md:mt-3 md:h-[2rem] md:w-[2rem] lg:rounded-[100%] lg:bg-[var(--bg-secondary)] lg:p-3"
-              onClick={() => {
-                setIsNotificationVisible((prev) => !prev);
-                setIsLoginCardVisible(false);
-              }}
+              onClick={() => setIsNotificationVisible((prev) => !prev)}
             />
             {isNotificationVisible && <NotificationDropDown />}
           </div>
 
-          <div className="relative flex items-center gap-4">
+          <div className="relative flex items-center gap-4" ref={loginCardRef}>
             <div
               className="flex h-[3rem] w-[3rem] cursor-pointer items-center justify-center rounded-full bg-orange-50 text-[1.4rem] font-semibold text-orange-700 sm:h-[4rem] sm:w-[4rem] sm:text-[1.8rem]"
-              onClick={() => {
-                setIsLoginCardVisible((prev) => !prev);
-                setIsNotificationVisible(false);
-              }}
+              onClick={() => setIsLoginCardVisible((prev) => !prev)}
             >
               S
             </div>

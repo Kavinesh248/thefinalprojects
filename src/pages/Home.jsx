@@ -40,6 +40,18 @@ const Home = function () {
           <Outlet />
         </article>
       </div>
+
+      <a
+        href="https://wa.me/919361886282"
+        target="_blank"
+        rel="noreferrer noopener"
+        className="fixed right-6 bottom-8 z-50 flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.2rem] font-medium sm:text-[1.5rem] xl:text-[1.6rem]"
+      >
+        <button className="flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--bg--primary-orange)] px-3 py-2 text-[1.4rem] font-medium text-white sm:text-[1.5rem] xl:text-[1.6rem]">
+          <span>Contact Us</span>
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </button>
+      </a>
     </main>
   );
 };

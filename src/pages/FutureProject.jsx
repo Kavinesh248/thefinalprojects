@@ -35,10 +35,10 @@ const FutureProject = function () {
     <div>
       <div className="mb-14 flex items-center justify-center p-8">
         <div className="text-center">
-          <h1 className="mb-4 text-[5rem] font-semibold text-[#E47112]">
+          <h1 className="mb-4 text-[3.2rem] font-semibold text-[#E47112] md:text-[4.4rem] lg:text-[5.2rem]">
             🚧 Coming Soon
           </h1>
-          <p className="mb-6 text-[1.8rem] text-white">
+          <p className="mb-6 text-[1.4rem] text-white md:text-[1.8rem] lg:text-[2rem]">
             We're crafting something amazing. Sign up to get notified when we
             launch!
           </p>
@@ -56,9 +56,9 @@ const FutureProject = function () {
               type="email"
               name="email"
               placeholder="Enter your email..."
-              className="flex-grow rounded-l-md border-1 border-[#cccccc] px-4 py-4 text-[1.6rem] placeholder:text-[1.6rem] focus:outline-none"
+              className="flex-grow rounded-l-md border-1 border-[#cccccc] px-4 py-2 text-[1.3rem] placeholder:text-[1.3rem] focus:outline-none md:px-5 md:py-4 md:text-[1.5rem] md:placeholder:text-[1.4rem] lg:px-6 lg:py-4 lg:text-[1.6rem] lg:placeholder:text-[1.6rem]"
             />
-            <button className="cursor-pointer bg-[#E47112] px-5 py-4 text-[1.6rem] text-white transition hover:bg-[#CC5F0E]">
+            <button className="cursor-pointer bg-[#E47112] px-4 py-2 text-[1.3rem] text-white transition hover:bg-[#CC5F0E] md:px-4 md:py-4 md:text-[1.4rem] lg:px-6 lg:py-5">
               Notify Me
             </button>
           </form>
@@ -76,7 +76,7 @@ const FutureProject = function () {
         pauseOnHover
         theme="colored"
       />
-      <div className="grid grid-cols-4 gap-8 blur-xs">
+      <div className="grid gap-8 blur-xs md:grid-cols-2 xl:grid-cols-4">
         <CategoryCard category="Cyber Security" img={assets.security} />
         <CategoryCard category="Digital Marketing" img={assets.marketing} />
       </div>

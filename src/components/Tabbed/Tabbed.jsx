@@ -57,10 +57,7 @@ const Tabbed = function () {
           }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugiat
-          libero, sapiente ipsa ab at ex eos alias illo. Lorem ipsum dolor sit
-          amet consectetur adipi sicing elit. Aut asperiores veritatis quibusdam
-          suscipit fugit illum officia aliquid repudiandae? Veniam voluptate
-          officiis magnam corporis voluptates dolore?
+          libero, sapiente ipsa ab at ex eos alias illo.
         </TabPanel>
         <TabPanel
           value="2"

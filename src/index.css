@@ -31,7 +31,7 @@
   }
 
   .icon {
-    @apply h-[2.2rem] w-[2.2rem] cursor-pointer sm:h-[2.8rem] sm:w-[2.8rem];
+    @apply h-[2.4rem] w-[2.4rem] cursor-pointer sm:h-[2.8rem] sm:w-[2.8rem];
   }
 
   .pointer {
