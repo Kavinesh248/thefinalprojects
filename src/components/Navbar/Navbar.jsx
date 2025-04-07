@@ -13,10 +13,10 @@ const Navbar = ({
   const [isNotificationVisible, setIsNotificationVisible] = useState(false);
   const [isLoginCardVisible, setIsLoginCardVisible] = useState(false);
 
-  const notificationRef = useRef(null);
+  const notificationRef = useRef();
   useClickOutside(notificationRef, () => setIsNotificationVisible(false));
 
-  const loginCardRef = useRef(null);
+  const loginCardRef = useRef();
   useClickOutside(loginCardRef, () => setIsLoginCardVisible(false));
 
   const closeAllDropdowns = () => {
