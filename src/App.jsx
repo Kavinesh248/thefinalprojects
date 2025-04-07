@@ -10,6 +10,8 @@ import FutureProject from "./pages/FutureProject";
 import Home from "./pages/Home";
 import ErrorPage from "./pages/Error";
 import ReferralProgram from "./pages/ReferralProgram";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+    children: [
+      { index: true, element: <Navigate to="/login/signin" replace /> },
+      { path: "signin", element: <SignIn /> },
+      { path: "signup", element: <SignUp /> },
+    ],
   },
 ]);
 

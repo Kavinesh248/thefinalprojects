@@ -1,5 +1,11 @@
+import { Outlet } from "react-router-dom";
+
 const Login = function () {
-  return <div></div>;
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
 };
 
 export default Login;
