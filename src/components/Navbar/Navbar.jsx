@@ -40,7 +40,7 @@ const Navbar = ({
         ></div>
       )}
 
-      <header className="col-span-3 flex justify-between bg-[var(--bg-secondary)] p-6 text-white sm:p-8 lg:col-start-2 lg:gap-8 lg:border-b-[.0004rem] lg:border-b-[var(--bg--primary-gray)] lg:bg-black lg:px-12 lg:py-8 xl:px-19">
+      <header className="col-span-3 flex justify-between bg-[var(--bg-secondary)] p-6 text-white sm:p-8 lg:col-start-2 lg:gap-8 lg:border-b-[.0004rem] lg:border-b-[var(--bg--primary-gray)] lg:bg-black lg:px-12 lg:py-8 xl:pr-19 xl:pl-25">
         <div className="flex items-center gap-4 md:gap-6 lg:hidden">
           <ion-icon
             name="menu-outline"
@@ -69,12 +69,14 @@ const Navbar = ({
 
           <div className="relative flex items-center gap-4" ref={loginCardRef}>
             <div
-              className="flex h-[3rem] w-[3rem] cursor-pointer items-center justify-center rounded-full bg-orange-50 text-[1.4rem] font-semibold text-orange-700 sm:h-[4rem] sm:w-[4rem] sm:text-[1.8rem]"
+              className="flex cursor-pointer items-center gap-2 md:gap-4 lg:gap-6"
               onClick={() => setIsLoginCardVisible((prev) => !prev)}
             >
-              S
+              <div className="flex h-[3.2rem] w-[3.2rem] items-center justify-center rounded-full bg-orange-50 text-[1.5rem] font-semibold text-orange-700 sm:h-[4rem] sm:w-[4rem] sm:text-[1.8rem]">
+                S
+              </div>
+              <p className="hidden text-[1.8rem] md:block">santhosh m</p>
             </div>
-            <p className="hidden text-[1.8rem] md:block">santhosh m</p>
             {isLoginCardVisible && <UserDropdown />}
           </div>
         </aside>
