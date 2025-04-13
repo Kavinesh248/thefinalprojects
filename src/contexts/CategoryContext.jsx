@@ -1,14 +1,13 @@
 import { createContext, useEffect, useReducer } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getCategories, getProjects } from "../services/apiCategory";
-
-const BASE_URL = "https://admin.thefinalprojects.com/api/projects";
 
 const CategoryContext = createContext();
 
 const initialState = {
   categories: [],
   projects: [],
-  currentCategoryName: "Web Development",
+  currentCategoryName: "",
   currentProject: null,
   isLoading: true,
 };
@@ -32,6 +31,7 @@ const reducer = (state, action) => {
 
 const CategoryProvider = function ({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [params] = useSearchParams();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -40,8 +40,14 @@ const CategoryProvider = function ({ children }) {
         const categories = await getCategories();
         const projects = await getProjects("Web Development");
         dispatch({ type: "SET_CATEGORY", payload: categories });
-        dispatch({ type: "SET_PROJECTS", payload: projects });
-        dispatch({ type: "SET_CURRENT_PROJECT", payload: projects[0] });
+        if (params.get("category") === null) {
+          dispatch({ type: "SET_PROJECTS", payload: projects });
+          dispatch({ type: "SET_CURRENT_PROJECT", payload: projects[0] });
+          dispatch({
+            type: "SET_CURRENT_CATEGORY",
+            payload: "Web Development",
+          });
+        }
       } catch (error) {
         console.error("Error fetching categories:", error);
       }

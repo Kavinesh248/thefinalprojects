@@ -12,7 +12,7 @@ import ErrorPage from "./pages/Error";
 import ReferralProgram from "./pages/ReferralProgram";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
-import { CategoryProvider } from "./contexts/CategoryContext";
+// import { CategoryProvider } from "./contexts/CategoryContext";
 
 const router = createBrowserRouter([
   {
@@ -39,11 +39,7 @@ const router = createBrowserRouter([
 ]);
 
 const App = function () {
-  return (
-    <CategoryProvider>
-      <RouterProvider router={router} />
-    </CategoryProvider>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

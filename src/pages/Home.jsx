@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { useEffect, useState } from "react";
+import { CategoryProvider } from "../contexts/CategoryContext";
 
 const Home = function () {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -37,7 +38,9 @@ const Home = function () {
         </div>
 
         <article className="flex-1 overflow-y-auto p-8 md:p-12 xl:py-6">
-          <Outlet />
+          <CategoryProvider>
+            <Outlet />
+          </CategoryProvider>
         </article>
       </div>
 

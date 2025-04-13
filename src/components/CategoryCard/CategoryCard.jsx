@@ -1,18 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { getProjects } from "../../services/apiCategory";
-// import { useCategory } from "../../contexts/CategoryContext";
 
 const CategoryCard = function ({ category, dispatch }) {
   const navigate = useNavigate();
-  // const { currentProject } = useCategory();
 
   const handleViewAll = async () => {
     try {
       const projectsData = await getProjects(category.name);
-      dispatch({
-        type: "SET_PROJECTS",
-        payload: projectsData || [],
-      });
+
+      if (projectsData)
+        dispatch({
+          type: "SET_PROJECTS",
+          payload: projectsData || [],
+        });
       dispatch({ type: "SET_CURRENT_CATEGORY", payload: category.name });
       dispatch({ type: "SET_CURRENT_PROJECT", payload: projectsData[0] });
       navigate(`/mylearning?category=${encodeURIComponent(category.name)}`);

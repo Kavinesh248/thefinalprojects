@@ -10,7 +10,7 @@ const ProjectVideoCard = function ({ project, dispatch }) {
 
   return (
     <div
-      className="h-[28rem] cursor-pointer rounded-lg bg-[#353535] p-5"
+      className="h-[30rem] cursor-pointer rounded-lg bg-[#353535] p-5"
       onClick={handleSetCurrentProject}
     >
       <div className="curosr-pointer relative w-full overflow-hidden">

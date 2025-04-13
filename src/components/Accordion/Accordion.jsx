@@ -10,7 +10,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 const CustomAccordion = ({ project, dispatch, expanded, handleChange }) => {
-  console.log(expanded);
   const handleSetCurrentProject = () => {
     dispatch({
       type: "SET_CURRENT_PROJECT",
