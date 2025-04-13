@@ -1,5 +1,5 @@
 import { createContext, useEffect, useReducer } from "react";
-import { getCategories } from "../services/apiCategory";
+import { getCategories, getProjects } from "../services/apiCategory";
 
 const BASE_URL = "https://admin.thefinalprojects.com/api/projects";
 
@@ -8,7 +8,7 @@ const CategoryContext = createContext();
 const initialState = {
   categories: [],
   projects: [],
-  currentCategoryName: "",
+  currentCategoryName: "Web Development",
   currentProject: null,
   isLoading: true,
 };
@@ -38,7 +38,10 @@ const CategoryProvider = function ({ children }) {
       dispatch({ type: "LOADING" });
       try {
         const categories = await getCategories();
+        const projects = await getProjects("Web Development");
         dispatch({ type: "SET_CATEGORY", payload: categories });
+        dispatch({ type: "SET_PROJECTS", payload: projects });
+        dispatch({ type: "SET_CURRENT_PROJECT", payload: projects[0] });
       } catch (error) {
         console.error("Error fetching categories:", error);
       }

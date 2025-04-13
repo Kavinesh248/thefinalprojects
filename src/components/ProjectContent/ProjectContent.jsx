@@ -10,7 +10,7 @@ const ProjectContent = function () {
 
   return (
     <div className="mb-12 aspect-video w-[100%] max-w-[2000px]">
-      <div className="mb-6 h-full w-full">
+      <div className="mb-8 h-full w-full">
         <iframe
           className="h-full w-full object-cover"
           src={embedUrl}

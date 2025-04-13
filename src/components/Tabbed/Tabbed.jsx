@@ -2,8 +2,9 @@ import { Box, Tab, Tabs } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { useState } from "react";
 import ProjectVideoCard from "../ProjectVideCard/ProjectVideoCard";
+import TabbedCotent from "../TabbedComponent/TabbedCotent";
 
-const Tabbed = function ({ projects, currentProject }) {
+const Tabbed = function ({ dispatch, projects, currentProject }) {
   const [value, setValue] = useState("1");
 
   const handleChange = (event, newValue) => {
@@ -11,7 +12,13 @@ const Tabbed = function ({ projects, currentProject }) {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box
+      sx={{
+        width: "100%",
+        minHeight: "50rem",
+        height: "100%",
+      }}
+    >
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "#4b4947" }}>
           <TabList
@@ -27,6 +34,7 @@ const Tabbed = function ({ projects, currentProject }) {
                 fontSize: {
                   xs: "1.4rem",
                   sm: "1.6rem",
+                  lg: "1.7rem",
                 },
                 color: "white",
                 textTransform: "none",
@@ -46,18 +54,18 @@ const Tabbed = function ({ projects, currentProject }) {
           className="customTabPanel"
           sx={{
             padding: "1.8rem",
-            maxHeight: "300px",
             overflowY: "auto",
             fontSize: {
               xs: "1.4rem",
               sm: "1.6rem",
               md: "1.8rem",
-              fontWeight: 400,
             },
+            fontWeight: 400,
           }}
         >
-          {currentProject.description}
+          <TabbedCotent description={currentProject.description} />
         </TabPanel>
+
         <TabPanel
           value="2"
           sx={{
@@ -65,9 +73,7 @@ const Tabbed = function ({ projects, currentProject }) {
             gap: "2rem",
             paddingInline: "1.6rem",
             paddingBlock: "2.4rem",
-            maxHeight: "300px",
             overflowY: "auto",
-            scrollbarWidth: "none",
             "&::-webkit-scrollbar": {
               display: "none",
             },
@@ -79,7 +85,13 @@ const Tabbed = function ({ projects, currentProject }) {
           }}
         >
           {Object.values(projects).map((project) => {
-            return <ProjectVideoCard key={project.id} project={project} />;
+            return (
+              <ProjectVideoCard
+                key={project.id}
+                project={project}
+                dispatch={dispatch}
+              />
+            );
           })}
         </TabPanel>
       </TabContext>

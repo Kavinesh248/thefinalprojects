@@ -9,17 +9,26 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
-const CustomAccordion = ({ project }) => {
-  console.log(project);
+const CustomAccordion = ({ project, dispatch, expanded, handleChange }) => {
+  console.log(expanded);
+  const handleSetCurrentProject = () => {
+    dispatch({
+      type: "SET_CURRENT_PROJECT",
+      payload: project[1],
+    });
+  };
+
   return (
     <Accordion
+      expanded={expanded}
+      onChange={handleChange}
       sx={{
         backgroundColor: "#1a1a1a",
         color: "white",
         paddingInline: "0.2rem",
         paddingBlock: "0.4rem",
         "&.Mui-expanded": {
-          margin: 0, // removes margin when expanded
+          margin: 0,
         },
       }}
     >
@@ -55,12 +64,14 @@ const CustomAccordion = ({ project }) => {
       </AccordionSummary>
 
       <AccordionDetails
+        onClick={handleSetCurrentProject}
         sx={{
           backgroundColor: "#111",
           padding: "1.5rem",
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
+          cursor: "pointer",
           boxShadow: "inset 4px 0 0 var(--bg--primary-orange)",
         }}
       >

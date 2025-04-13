@@ -1,9 +1,18 @@
 import { assets } from "../../assets/assets";
 
-const ProjectVideoCard = function ({ project }) {
-  console.log(project);
+const ProjectVideoCard = function ({ project, dispatch }) {
+  const handleSetCurrentProject = () => {
+    dispatch({
+      type: "SET_CURRENT_PROJECT",
+      payload: project,
+    });
+  };
+
   return (
-    <div className="cursor-pointer rounded-lg bg-[#353535] p-5">
+    <div
+      className="h-[28rem] cursor-pointer rounded-lg bg-[#353535] p-5"
+      onClick={handleSetCurrentProject}
+    >
       <div className="curosr-pointer relative w-full overflow-hidden">
         <img
           src={assets.aiImage}
