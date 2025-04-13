@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets";
 import NotificationDropDown from "../NotificationDropDown/NotificationDropDown";
 import UserDropdown from "../UserDropdown/UserDropdown";
 import Input from "../Input/Input";
-import useClickOutside from "../../utils/useClickOutside";
+import useClickOutside from "../../services/useClickOutside";
 
 const Navbar = ({
   setIsSidebarVisible,

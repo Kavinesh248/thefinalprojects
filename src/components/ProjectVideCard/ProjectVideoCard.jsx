@@ -1,8 +1,9 @@
 import { assets } from "../../assets/assets";
 
-const ProjectVideoCard = function () {
+const ProjectVideoCard = function ({ project }) {
+  console.log(project);
   return (
-    <div className="rounded-lg bg-[#353535] p-5">
+    <div className="cursor-pointer rounded-lg bg-[#353535] p-5">
       <div className="curosr-pointer relative w-full overflow-hidden">
         <img
           src={assets.aiImage}
@@ -23,9 +24,9 @@ const ProjectVideoCard = function () {
       </div>
 
       <div className="mt-4 p-2">
-        <h1 className="font-md text-[1.4rem]">LAB</h1>
+        <h1 className="font-md text-[1.4rem]">something</h1>
         <p className="text-[1.4rem] text-[var(--bg--primary-orange)] sm:text-[1.6rem]">
-          Connect with SNA Lab
+          {project.title}
         </p>
 
         <span className="mt-5 inline-block text-[1.2rem] text-[var(--text-secondary)]">

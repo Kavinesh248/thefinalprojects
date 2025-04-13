@@ -40,9 +40,9 @@ const router = createBrowserRouter([
 
 const App = function () {
   return (
-    // <CategoryProvider>
-    <RouterProvider router={router} />
-    // </CategoryProvider>
+    <CategoryProvider>
+      <RouterProvider router={router} />
+    </CategoryProvider>
   );
 };
 

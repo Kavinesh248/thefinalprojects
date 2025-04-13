@@ -9,7 +9,8 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
-const CustomAccordion = () => {
+const CustomAccordion = ({ project }) => {
+  console.log(project);
   return (
     <Accordion
       sx={{
@@ -45,10 +46,10 @@ const CustomAccordion = () => {
               fontSize: "1.4rem",
             }}
           >
-            1
+            {+project[0] + 1}
           </Box>
           <Typography fontSize="1.6rem" fontFamily="Outfit" fontWeight={400}>
-            Connect with SNA Labs
+            {project[1].title}
           </Typography>
         </Box>
       </AccordionSummary>
@@ -86,7 +87,7 @@ const CustomAccordion = () => {
             />
             <Typography fontSize="1.6rem">Project 1</Typography>
           </Box>
-          <Typography fontSize="1.4rem">18mins</Typography>
+          <Typography fontSize="1.4rem">{project[1].duration}</Typography>
         </Box>
 
         <Box sx={{ width: "100%" }}>
@@ -105,7 +106,7 @@ const CustomAccordion = () => {
         </Box>
 
         <Typography fontSize="1.3rem" marginTop="1.2rem" color="#ccc">
-          Uploaded <span>Jun 08 2022</span>
+          Uploaded by admin 🧑‍💻
         </Typography>
       </AccordionDetails>
     </Accordion>

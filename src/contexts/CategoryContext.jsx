@@ -1,31 +1,56 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { getCategories } from "../services/apiCategory";
 
-const BASE_URL = "https://admin.thefinalprojects.com/projects/";
+const BASE_URL = "https://admin.thefinalprojects.com/api/projects";
 
 const CategoryContext = createContext();
 
+const initialState = {
+  categories: [],
+  projects: [],
+  currentCategoryName: "",
+  currentProject: null,
+  isLoading: true,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "LOADING":
+      return { ...state, isLoading: true };
+    case "SET_PROJECTS":
+      return { ...state, projects: action.payload, isLoading: false };
+    case "SET_CATEGORY":
+      return { ...state, isLoading: false, categories: action.payload };
+    case "SET_CURRENT_PROJECT":
+      return { ...state, currentProject: action.payload };
+    case "SET_CURRENT_CATEGORY":
+      return { ...state, currentCategoryName: action.payload };
+    default:
+      return state;
+  }
+};
+
 const CategoryProvider = function ({ children }) {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     const fetchCategories = async () => {
+      dispatch({ type: "LOADING" });
       try {
-        const response = await fetch(`${BASE_URL}`);
-        const data = await response.json();
-        console.log(data);
+        const categories = await getCategories();
+        dispatch({ type: "SET_CATEGORY", payload: categories });
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
-
     fetchCategories();
-  });
+  }, []);
 
   return (
     <CategoryContext.Provider
       value={{
-        selectedCategory,
-        setSelectedCategory,
+        ...state,
+        dispatch,
       }}
     >
       {children}
@@ -33,12 +58,12 @@ const CategoryProvider = function ({ children }) {
   );
 };
 
-// const useCategory = () => {
-//   const context = useContext(CategoryContext);
-//   if (!context) {
-//     throw new Error("useCategory must be used within a CategoryProvider");
-//   }
-//   return context;
-// };
+const useCategory = () => {
+  const context = useContext(CategoryContext);
+  if (!context) {
+    throw new Error("useCategory must be used within a CategoryProvider");
+  }
+  return context;
+};
 
-export { CategoryProvider };
+export { CategoryProvider, useCategory };

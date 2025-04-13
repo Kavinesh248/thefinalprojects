@@ -3,7 +3,7 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { useState } from "react";
 import ProjectVideoCard from "../ProjectVideCard/ProjectVideoCard";
 
-const Tabbed = function () {
+const Tabbed = function ({ projects, currentProject }) {
   const [value, setValue] = useState("1");
 
   const handleChange = (event, newValue) => {
@@ -56,8 +56,7 @@ const Tabbed = function () {
             },
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugiat
-          libero, sapiente ipsa ab at ex eos alias illo.
+          {currentProject.description}
         </TabPanel>
         <TabPanel
           value="2"
@@ -79,11 +78,9 @@ const Tabbed = function () {
             },
           }}
         >
-          <ProjectVideoCard />
-          <ProjectVideoCard />
-          <ProjectVideoCard />
-          <ProjectVideoCard />
-          <ProjectVideoCard />
+          {Object.values(projects).map((project) => {
+            return <ProjectVideoCard key={project.id} project={project} />;
+          })}
         </TabPanel>
       </TabContext>
     </Box>
