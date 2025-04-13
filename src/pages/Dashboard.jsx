@@ -1,6 +1,6 @@
 import CategoryCard from "../components/CategoryCard/CategoryCard";
 import Welcome from "../components/Welcome/Welcome";
-import { useCategory } from "../contexts/CategoryContext";
+import { useCategory } from "../utils/useCategory";
 
 const Dashboard = function () {
   const { categories, isLoading, dispatch } = useCategory();

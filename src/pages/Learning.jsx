@@ -2,8 +2,8 @@ import { assets } from "../assets/assets";
 import Tabbed from "../components/Tabbed/Tabbed";
 import Accordion from "../components/Accordion/Accordion";
 import HeaderContent from "../components/HeaderContent/HeaderContent";
-import { useCategory } from "../contexts/CategoryContext";
 import ProjectContent from "../components/ProjectContent/ProjectContent";
+import { useCategory } from "../utils/useCategory";
 
 const Learning = function () {
   const { isLoading, dispatch, currentProject, currentCategoryName, projects } =

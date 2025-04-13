@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { getCategories } from "../services/apiCategory";
 
 const BASE_URL = "https://admin.thefinalprojects.com/api/projects";
@@ -58,12 +58,4 @@ const CategoryProvider = function ({ children }) {
   );
 };
 
-const useCategory = () => {
-  const context = useContext(CategoryContext);
-  if (!context) {
-    throw new Error("useCategory must be used within a CategoryProvider");
-  }
-  return context;
-};
-
-export { CategoryProvider, useCategory };
+export { CategoryProvider, CategoryContext };

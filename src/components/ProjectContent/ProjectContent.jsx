@@ -1,5 +1,5 @@
-import { useCategory } from "../../contexts/CategoryContext";
 import { getYouTubeEmbedUrl } from "../../utils/getYouTubeEmbedUrl";
+import { useCategory } from "../../utils/useCategory";
 
 const ProjectContent = function () {
   const { currentProject } = useCategory();
