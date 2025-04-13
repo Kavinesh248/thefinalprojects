@@ -53,7 +53,7 @@ const CategoryProvider = function ({ children }) {
       }
     };
     fetchCategories();
-  }, []);
+  }, [params]);
 
   return (
     <CategoryContext.Provider
