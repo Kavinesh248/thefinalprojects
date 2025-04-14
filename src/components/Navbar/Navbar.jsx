@@ -1,24 +1,26 @@
+import { memo, useCallback } from "react";
 import { assets } from "../../assets/assets";
-import NotificationDropDown from "../NotificationDropDown/NotificationDropDown";
-import UserDropdown from "../UserDropdown/UserDropdown";
+import { useNavigate } from "react-router-dom";
 import Input from "../Input/Input";
 
-const Navbar = ({
+const Navbar = memo(function Navbar({
   setIsSidebarVisible,
   isOverlayVisible,
   setIsOverlayVisible,
-}) => {
-  const toggleSidebar = () => {
+}) {
+  const handleToggle = useCallback(() => {
     setIsSidebarVisible((prev) => !prev);
     setIsOverlayVisible((prev) => !prev);
-  };
+  }, [setIsSidebarVisible, setIsOverlayVisible]);
+
+  const navigate = useNavigate();
 
   return (
     <>
       {isOverlayVisible && (
         <div
           className="fixed inset-0 z-6 bg-[rgba(0,0,0,0.4)]"
-          onClick={toggleSidebar}
+          onClick={handleToggle}
         ></div>
       )}
 
@@ -27,12 +29,14 @@ const Navbar = ({
           <ion-icon
             name="menu-outline"
             className="icon"
-            onClick={toggleSidebar}
+            onClick={handleToggle}
           />
           <img
             src={assets.logo}
             alt="logo"
+            loading="lazy"
             className="h-[2.2rem] sm:h-[2.8rem] md:h-[3.2rem]"
+            onClick={() => navigate("/")}
           />
         </div>
 
@@ -58,6 +62,6 @@ const Navbar = ({
       </header>
     </>
   );
-};
+});
 
 export default Navbar;

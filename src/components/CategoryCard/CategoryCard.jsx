@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import React from "react";
 import { getProjects } from "../../services/apiCategory";
 
-const CategoryCard = function ({ category, dispatch }) {
+const CategoryCard = React.memo(function ({ category, dispatch }) {
   const navigate = useNavigate();
 
   const handleViewAll = async () => {
@@ -27,6 +28,7 @@ const CategoryCard = function ({ category, dispatch }) {
         <img
           src={category.category_poster_url}
           alt="content"
+          loading="lazy"
           className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
         />
       </div>
@@ -44,6 +46,6 @@ const CategoryCard = function ({ category, dispatch }) {
       </div>
     </div>
   );
-};
+});
 
 export default CategoryCard;

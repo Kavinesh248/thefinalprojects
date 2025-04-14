@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { NavLink } from "react-router-dom";
 
 const NavItem = ({ to, icon, label, onClick }) => {
@@ -13,4 +14,7 @@ const NavItem = ({ to, icon, label, onClick }) => {
   );
 };
 
-export default NavItem;
+const MemoizedNavItem = memo(NavItem);
+MemoizedNavItem.displayName = "NavItem";
+
+export default MemoizedNavItem;

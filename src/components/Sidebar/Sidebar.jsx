@@ -1,30 +1,35 @@
 import { NavLink } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import NavItem from "../NavItem/NavItem";
+import { memo, useCallback } from "react";
+import classNames from "classnames";
 
-const Sidebar = function ({
+const Sidebar = memo(function Sidebar({
   isVisible,
   setIsSidebarVisible,
   setIsOverlayVisible,
 }) {
-  const handleCloseSidebar = () => {
+  const handleCloseSidebar = useCallback(() => {
     setIsSidebarVisible(false);
     setIsOverlayVisible(false);
-  };
+  }, [setIsSidebarVisible, setIsOverlayVisible]);
+
+  const sidebarClasses = classNames(
+    "flex h-screen w-[20rem] flex-col items-center rounded-tr-4xl bg-[var(--bg-secondary)] py-12 text-white transition-transform duration-300 ease-in-out sm:w-[25rem] md:w-[30rem] lg:w-[24rem] lg:py-16 lg:sticky lg:top-0 lg:z-20 lg:row-span-2 lg:row-start-1 lg:translate-x-0",
+    {
+      "fixed top-0 left-0 z-999 -translate-x-0": isVisible,
+      "fixed z-999 -translate-x-full": !isVisible,
+    },
+  );
 
   return (
-    <div
-      className={`flex h-screen w-[20rem] flex-col items-center rounded-tr-4xl bg-[var(--bg-secondary)] py-12 text-white transition-transform duration-300 ease-in-out sm:w-[25rem] md:w-[30rem] lg:w-[24rem] lg:py-16 ${
-        isVisible
-          ? "fixed top-0 left-0 z-999 -translate-x-0"
-          : "fixed z-999 -translate-x-full"
-      } lg:sticky lg:top-0 lg:z-20 lg:row-span-2 lg:row-start-1 lg:translate-x-0`}
-    >
+    <div className={sidebarClasses}>
       <NavLink to="/">
         <img
           src={assets.logo}
           className="w-[12rem] sm:w-[15rem] md:w-[18rem]"
           alt="brand logo"
+          loading="lazy"
           onClick={handleCloseSidebar}
         />
       </NavLink>
@@ -57,6 +62,6 @@ const Sidebar = function ({
       </ul>
     </div>
   );
-};
+});
 
 export default Sidebar;
