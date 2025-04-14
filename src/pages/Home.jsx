@@ -53,7 +53,7 @@ const Home = function () {
         <span className="hidden sm:block">Chat with us</span>
         <ion-icon
           name="logo-whatsapp"
-          className="text-[2.6rem] sm:text-[1.9rem]"
+          className="text-[3rem] sm:text-[1.9rem]"
         ></ion-icon>
       </a>
     </main>

@@ -27,6 +27,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
             borderBottom: 1,
             borderColor: "#4b4947",
             overflowX: "auto",
+            overflowY: "hidden",
             height: "min-content",
             "&::-webkit-scrollbar": {
               display: "none",
