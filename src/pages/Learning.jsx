@@ -62,7 +62,7 @@ const Learning = function () {
       )}
 
       {displayProject && (
-        <div className="col-span-3 mt-6 h-[40rem] rounded-lg bg-[var(--bg-secondary)] p-4 text-[1.8rem] text-white md:h-[60rem]">
+        <div className="col-span-3 mt-6 h-[35rem] rounded-lg bg-[var(--bg-secondary)] p-4 text-[1.8rem] text-white md:h-[60rem]">
           <Tabbed
             dispatch={dispatch}
             projects={projects}
