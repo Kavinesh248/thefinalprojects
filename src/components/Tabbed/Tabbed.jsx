@@ -61,11 +61,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
               height: "100%",
               overflowY: "auto",
               padding: "1.8rem",
-              fontSize: {
-                xs: "1.4rem",
-                sm: "1.6rem",
-                md: "1.8rem",
-              },
+
               fontWeight: 400,
             }}
           >
@@ -107,7 +103,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
             sx={{
               height: "100%",
               overflowY: "auto",
-              padding: "1.8rem",
+              padding: "2.4rem",
               fontSize: {
                 xs: "1.4rem",
                 sm: "1.6rem",
@@ -116,7 +112,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
               fontWeight: 400,
             }}
           >
-            <h1 className="mb-6 text-[1.4rem]">
+            <h1 className="mb-6 text-[1.5rem] md:text-[1.7rem] lg:text-[1.8rem]">
               Download the titles of the category you chosed 🚀
             </h1>
             <a href={assets.aiPdf} download="phpProjects.pdf">

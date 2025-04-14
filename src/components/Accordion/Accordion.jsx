@@ -22,7 +22,6 @@ const CustomAccordion = memo(function ({
       payload: project[1],
     });
   };
-  console.log(project);
 
   return (
     <Accordion
