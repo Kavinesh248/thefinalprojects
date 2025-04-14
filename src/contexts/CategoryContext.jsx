@@ -24,6 +24,15 @@ const reducer = (state, action) => {
       return { ...state, currentProject: action.payload };
     case "SET_CURRENT_CATEGORY":
       return { ...state, currentCategoryName: action.payload };
+    case "SET_DATA":
+      return {
+        ...state,
+        categories: action.payload.categories,
+        projects: action.payload.projects,
+        currentCategoryName: action.payload.currentCategory,
+        currentProject: action.payload.projects[0],
+        isLoading: false,
+      };
     default:
       return state;
   }
@@ -34,25 +43,23 @@ const CategoryProvider = function ({ children }) {
   const [params] = useSearchParams();
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    const fetchData = async () => {
       dispatch({ type: "LOADING" });
       try {
         const categories = await getCategories();
-        const projects = await getProjects("Web Development");
-        dispatch({ type: "SET_CATEGORY", payload: categories });
-        if (params.get("category") === null) {
-          dispatch({ type: "SET_PROJECTS", payload: projects });
-          dispatch({ type: "SET_CURRENT_PROJECT", payload: projects[0] });
-          dispatch({
-            type: "SET_CURRENT_CATEGORY",
-            payload: "Web Development",
-          });
-        }
+        const currentCategory = params.get("category") || "Web Development";
+        const projects = await getProjects(currentCategory);
+
+        dispatch({
+          type: "SET_DATA",
+          payload: { categories, projects, currentCategory },
+        });
       } catch (error) {
-        console.error("Error fetching categories:", error);
+        console.error("Error fetching data:", error);
       }
     };
-    fetchCategories();
+
+    fetchData();
   }, [params]);
 
   return (

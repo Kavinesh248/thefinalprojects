@@ -15,8 +15,9 @@ const Tabbed = function ({ dispatch, projects, currentProject }) {
     <Box
       sx={{
         width: "100%",
-        minHeight: "50rem",
         height: "100%",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <TabContext value={value}>
@@ -49,51 +50,54 @@ const Tabbed = function ({ dispatch, projects, currentProject }) {
             <Tab label="Project Videos" value="2" />
           </TabList>
         </Box>
-        <TabPanel
-          value="1"
-          className="customTabPanel"
-          sx={{
-            padding: "1.8rem",
-            overflowY: "auto",
-            fontSize: {
-              xs: "1.4rem",
-              sm: "1.6rem",
-              md: "1.8rem",
-            },
-            fontWeight: 400,
-          }}
-        >
-          <TabbedCotent description={currentProject.description} />
-        </TabPanel>
 
-        <TabPanel
-          value="2"
-          sx={{
-            display: "grid",
-            gap: "2rem",
-            paddingInline: "1.6rem",
-            paddingBlock: "2.4rem",
-            overflowY: "auto",
-            "&::-webkit-scrollbar": {
-              display: "none",
-            },
-            gridTemplateColumns: {
-              sm: "1fr 1fr",
-              lg: "repeat(3, 1fr)",
-              xl: "repeat(4, 1fr)",
-            },
-          }}
-        >
-          {Object.values(projects).map((project) => {
-            return (
+        <Box sx={{ flexGrow: 1, overflow: "hidden" }}>
+          <TabPanel
+            value="1"
+            className="customTabPanel"
+            sx={{
+              height: "100%",
+              overflowY: "auto",
+              padding: "1.8rem",
+              fontSize: {
+                xs: "1.4rem",
+                sm: "1.6rem",
+                md: "1.8rem",
+              },
+              fontWeight: 400,
+            }}
+          >
+            <TabbedCotent description={currentProject.description} />
+          </TabPanel>
+
+          <TabPanel
+            value="2"
+            sx={{
+              height: "100%",
+              overflowY: "auto",
+              display: "grid",
+              gap: "2rem",
+              paddingInline: "1.6rem",
+              paddingBlock: "2.4rem",
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+              gridTemplateColumns: {
+                sm: "1fr 1fr",
+                lg: "repeat(3, 1fr)",
+                xl: "repeat(4, 1fr)",
+              },
+            }}
+          >
+            {Object.values(projects).map((project) => (
               <ProjectVideoCard
                 key={project.id}
                 project={project}
                 dispatch={dispatch}
               />
-            );
-          })}
-        </TabPanel>
+            ))}
+          </TabPanel>
+        </Box>
       </TabContext>
     </Box>
   );

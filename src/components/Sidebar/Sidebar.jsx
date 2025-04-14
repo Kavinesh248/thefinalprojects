@@ -25,6 +25,7 @@ const Sidebar = function ({
           src={assets.logo}
           className="w-[12rem] sm:w-[15rem] md:w-[18rem]"
           alt="brand logo"
+          onClick={handleCloseSidebar}
         />
       </NavLink>
 

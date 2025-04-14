@@ -1,31 +1,13 @@
-import { useRef, useState } from "react";
 import { assets } from "../../assets/assets";
 import NotificationDropDown from "../NotificationDropDown/NotificationDropDown";
 import UserDropdown from "../UserDropdown/UserDropdown";
 import Input from "../Input/Input";
-import useClickOutside from "../../services/useClickOutside";
 
 const Navbar = ({
   setIsSidebarVisible,
   isOverlayVisible,
   setIsOverlayVisible,
 }) => {
-  const [isNotificationVisible, setIsNotificationVisible] = useState(false);
-  const [isLoginCardVisible, setIsLoginCardVisible] = useState(false);
-
-  const notificationRef = useRef();
-  useClickOutside(notificationRef, () => setIsNotificationVisible(false));
-
-  const loginCardRef = useRef();
-  useClickOutside(loginCardRef, () => setIsLoginCardVisible(false));
-
-  const closeAllDropdowns = () => {
-    setIsNotificationVisible(false);
-    setIsLoginCardVisible(false);
-    setIsOverlayVisible(false);
-    setIsSidebarVisible(false);
-  };
-
   const toggleSidebar = () => {
     setIsSidebarVisible((prev) => !prev);
     setIsOverlayVisible((prev) => !prev);
@@ -36,7 +18,7 @@ const Navbar = ({
       {isOverlayVisible && (
         <div
           className="fixed inset-0 z-6 bg-[rgba(0,0,0,0.4)]"
-          onClick={closeAllDropdowns}
+          onClick={toggleSidebar}
         ></div>
       )}
 
@@ -52,32 +34,25 @@ const Navbar = ({
             alt="logo"
             className="h-[2.2rem] sm:h-[2.8rem] md:h-[3.2rem]"
           />
-          <ion-icon name="search-outline" className="icon" />
         </div>
 
         <Input />
 
         <aside className="flex items-center gap-4 md:gap-7 lg:basis-[40%] lg:justify-end xl:gap-10">
-          <div className="relative" ref={notificationRef}>
+          <div className="relative">
             <ion-icon
               name="notifications-outline"
               className="mt-2 h-[1.7rem] w-[1.7rem] cursor-pointer sm:h-[1.8rem] sm:w-[1.8rem] md:mt-3 md:h-[2rem] md:w-[2rem] lg:rounded-[100%] lg:bg-[var(--bg-secondary)] lg:p-3"
-              onClick={() => setIsNotificationVisible((prev) => !prev)}
             />
-            {isNotificationVisible && <NotificationDropDown />}
           </div>
 
-          <div className="relative flex items-center gap-4" ref={loginCardRef}>
-            <div
-              className="flex cursor-pointer items-center gap-2 md:gap-4 lg:gap-6"
-              onClick={() => setIsLoginCardVisible((prev) => !prev)}
-            >
+          <div className="relative flex items-center gap-4">
+            <div className="flex cursor-pointer items-center gap-2 md:gap-4 lg:gap-6">
               <div className="flex h-[3.2rem] w-[3.2rem] items-center justify-center rounded-full bg-orange-50 text-[1.5rem] font-semibold text-orange-700 sm:h-[4rem] sm:w-[4rem] sm:text-[1.8rem]">
-                S
+                G
               </div>
-              <p className="hidden text-[1.8rem] md:block">santhosh m</p>
+              <p className="hidden text-[1.8rem] md:block">Guest</p>
             </div>
-            {isLoginCardVisible && <UserDropdown />}
           </div>
         </aside>
       </header>
