@@ -20,7 +20,7 @@ const Learning = function () {
   };
 
   if (isLoading) {
-    return <div className="p-4 text-white">Loading categories...</div>;
+    return <div className="loader"></div>;
   }
 
   return (

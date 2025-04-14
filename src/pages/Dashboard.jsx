@@ -6,11 +6,7 @@ const Dashboard = function () {
   const { categories, isLoading, dispatch } = useCategory();
 
   if (isLoading) {
-    return (
-      <div className="loader-wrapper">
-        <div className="loader"></div>
-      </div>
-    );
+    return <div className="loader"></div>;
   }
 
   return (
