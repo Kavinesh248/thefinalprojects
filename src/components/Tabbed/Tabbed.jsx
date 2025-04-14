@@ -49,7 +49,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
           >
             <Tab label="Description" value="1" />
             <Tab label="Project Videos" value="2" />
-            <Tab label="Download Titles" value="3" />
+            <Tab label="Titles" value="3" />
           </TabList>
         </Box>
 
