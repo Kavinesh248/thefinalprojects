@@ -22,11 +22,25 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
       }}
     >
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "#4b4947" }}>
+        <Box
+          sx={{
+            borderBottom: 1,
+            borderColor: "#4b4947",
+            overflowX: "auto",
+            height: "min-content",
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+        >
           <TabList
             onChange={handleChange}
             aria-label="lab API tabs example"
             sx={{
+              minWidth: "max-content",
+              "& .MuiTabs-flexContainer": {
+                flexWrap: "nowrap",
+              },
               "& .MuiTabs-indicator": {
                 backgroundColor: "var(--bg--primary-orange)",
                 height: "2.4px",
@@ -41,6 +55,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
                 color: "white",
                 textTransform: "none",
                 fontWeight: 500,
+                flexShrink: 0,
               },
               "& .MuiTab-root.Mui-selected": {
                 color: "var(--bg--primary-orange)",
@@ -53,15 +68,22 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
           </TabList>
         </Box>
 
-        <Box sx={{ flexGrow: 1, overflow: "hidden" }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            height: "100%", // This is key to make child 100% work
+            overflow: "hidden",
+          }}
+        >
           <TabPanel
             value="1"
             className="customTabPanel"
             sx={{
-              height: "100%",
+              flexGrow: 1, // ← this fills available space
               overflowY: "auto",
               padding: "1.8rem",
-
               fontWeight: 400,
             }}
           >
@@ -71,7 +93,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
           <TabPanel
             value="2"
             sx={{
-              height: "100%",
+              flexGrow: 1,
               overflowY: "auto",
               display: "grid",
               gap: "2rem",
@@ -101,7 +123,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
             value="3"
             className="customTabPanel"
             sx={{
-              height: "100%",
+              flexGrow: 1,
               overflowY: "auto",
               padding: "2.4rem",
               fontSize: {
