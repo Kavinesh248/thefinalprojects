@@ -61,21 +61,3 @@ const Home = function () {
 };
 
 export default Home;
-
-{
-  /* <main className="min-h-screen bg-black lg:grid lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr]">
-      <Navbar
-        setIsSidebarVisible={setIsSidebarVisible}
-        isOverlayVisible={isOverlayVisible}
-        setIsOverlayVisible={setIsOverlayVisible}
-      />
-      <Sidebar
-        isVisible={isSidebarVisible}
-        setIsSidebarVisible={setIsSidebarVisible}
-        setIsOverlayVisible={setIsOverlayVisible}
-      />
-      <article className="p-8 md:p-12 xl:py-6">
-        <Outlet />
-      </article>
-    </main> */
-}
