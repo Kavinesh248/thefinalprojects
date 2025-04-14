@@ -77,8 +77,16 @@ const FutureProject = function () {
         theme="colored"
       />
       <div className="grid gap-8 blur-xs md:grid-cols-2 xl:grid-cols-4">
-        <CategoryCard category="Cyber Security" img={assets.security} />
-        <CategoryCard category="Digital Marketing" img={assets.marketing} />
+        <CategoryCard
+          defaultCategory="Cyber Security"
+          defaultName="🔐"
+          defaultImg={assets.security}
+        />
+        <CategoryCard
+          defaultCategory="Digital Marketing"
+          defaultImg={assets.marketing}
+          defaultName="🔐"
+        />
       </div>
     </div>
   );

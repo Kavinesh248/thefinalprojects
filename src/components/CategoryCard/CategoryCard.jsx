@@ -2,7 +2,13 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { getProjects } from "../../services/apiCategory";
 
-const CategoryCard = React.memo(function ({ category, dispatch }) {
+const CategoryCard = React.memo(function ({
+  category,
+  dispatch,
+  defaultImg,
+  defaultCategory,
+  defaultName,
+}) {
   const navigate = useNavigate();
 
   const handleViewAll = async () => {
@@ -16,6 +22,7 @@ const CategoryCard = React.memo(function ({ category, dispatch }) {
         });
       dispatch({ type: "SET_CURRENT_CATEGORY", payload: category.name });
       dispatch({ type: "SET_CURRENT_PROJECT", payload: projectsData[0] });
+      window.scrollTo({ top: 0, behavior: "smooth" });
       navigate(`/mylearning?category=${encodeURIComponent(category.name)}`);
     } catch (error) {
       console.error("Failed to fetch projects:", error);
@@ -26,7 +33,7 @@ const CategoryCard = React.memo(function ({ category, dispatch }) {
     <div className="w-full overflow-hidden rounded-lg bg-[var(--bg-secondary)] px-6 py-5 text-white lg:p-6">
       <div className="relative h-64 w-full overflow-hidden rounded-lg bg-gray-200">
         <img
-          src={category.category_poster_url}
+          src={category?.category_poster_url || defaultImg}
           alt="content"
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
@@ -37,7 +44,8 @@ const CategoryCard = React.memo(function ({ category, dispatch }) {
         <p className="mb-[1.2rem] text-[1.2rem] text-[#74c0fc]">Bundle pack</p>
 
         <h1 className="mb-[1.8rem] text-[1.6rem]">
-          {category.name} {category.description}
+          {category?.name || defaultName}{" "}
+          {category?.description || defaultCategory}
         </h1>
 
         <button className="btn w-full" onClick={handleViewAll}>
