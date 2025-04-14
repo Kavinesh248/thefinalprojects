@@ -4,7 +4,7 @@ import NavItem from "../NavItem/NavItem";
 import { memo, useCallback } from "react";
 import classNames from "classnames";
 
-const Sidebar = memo(function Sidebar({
+const Sidebar = memo(function ({
   isVisible,
   setIsSidebarVisible,
   setIsOverlayVisible,

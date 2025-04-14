@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useCategory } from "../utils/useCategory";
@@ -15,9 +15,9 @@ const Learning = function () {
   const [expandedAccordion, setExpandedAccordion] = useState(null);
   const displayProject = projects && currentProject;
 
-  const handleAccordionChange = (panelId) => {
+  const handleAccordionChange = useCallback((panelId) => {
     setExpandedAccordion((prev) => (prev === panelId ? null : panelId));
-  };
+  }, []);
 
   if (isLoading) {
     return <div className="loader"></div>;

@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 import Input from "../Input/Input";
 
-const Navbar = memo(function Navbar({
+const Navbar = memo(function ({
   setIsSidebarVisible,
   isOverlayVisible,
   setIsOverlayVisible,

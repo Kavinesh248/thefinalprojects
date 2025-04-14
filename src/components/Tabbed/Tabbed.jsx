@@ -1,10 +1,11 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { useState } from "react";
+import { memo, useState } from "react";
 import ProjectVideoCard from "../ProjectVideCard/ProjectVideoCard";
 import TabbedCotent from "../TabbedComponent/TabbedCotent";
+import { assets } from "../../assets/assets";
 
-const Tabbed = function ({ dispatch, projects, currentProject }) {
+const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
   const [value, setValue] = useState("1");
 
   const handleChange = (event, newValue) => {
@@ -48,6 +49,7 @@ const Tabbed = function ({ dispatch, projects, currentProject }) {
           >
             <Tab label="Description" value="1" />
             <Tab label="Project Videos" value="2" />
+            <Tab label="Download Titles" value="3" />
           </TabList>
         </Box>
 
@@ -87,6 +89,7 @@ const Tabbed = function ({ dispatch, projects, currentProject }) {
                 lg: "repeat(3, 1fr)",
                 xl: "repeat(4, 1fr)",
               },
+              gridTemplateRows: "repeat(2, 1fr)",
             }}
           >
             {Object.values(projects).map((project) => (
@@ -97,10 +100,39 @@ const Tabbed = function ({ dispatch, projects, currentProject }) {
               />
             ))}
           </TabPanel>
+
+          <TabPanel
+            value="3"
+            className="customTabPanel"
+            sx={{
+              height: "100%",
+              overflowY: "auto",
+              padding: "1.8rem",
+              fontSize: {
+                xs: "1.4rem",
+                sm: "1.6rem",
+                md: "1.8rem",
+              },
+              fontWeight: 400,
+            }}
+          >
+            <h1 className="mb-6 text-[1.4rem]">
+              Download the titles of the category you chosed 🚀
+            </h1>
+            <a href={assets.aiPdf} download="phpProjects.pdf">
+              <button
+                type="button"
+                className="flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.2rem] font-medium transition-colors duration-300 hover:bg-[#f08529] sm:text-[1.5rem] xl:text-[1.6rem]"
+              >
+                <span>Get Titles</span>
+                <ion-icon name="document-outline"></ion-icon>
+              </button>
+            </a>
+          </TabPanel>
         </Box>
       </TabContext>
     </Box>
   );
-};
+});
 
 export default Tabbed;

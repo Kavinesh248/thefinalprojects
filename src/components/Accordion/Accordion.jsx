@@ -8,14 +8,21 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import { memo } from "react";
 
-const CustomAccordion = ({ project, dispatch, expanded, handleChange }) => {
+const CustomAccordion = memo(function ({
+  project,
+  dispatch,
+  expanded,
+  handleChange,
+}) {
   const handleSetCurrentProject = () => {
     dispatch({
       type: "SET_CURRENT_PROJECT",
       payload: project[1],
     });
   };
+  console.log(project);
 
   return (
     <Accordion
@@ -42,8 +49,8 @@ const CustomAccordion = ({ project, dispatch, expanded, handleChange }) => {
         <Box sx={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <Box
             sx={{
-              width: 30,
-              height: 30,
+              width: "30px",
+              aspectRatio: "1 / 1",
               borderRadius: "50%",
               backgroundColor: "white",
               color: "black",
@@ -95,7 +102,7 @@ const CustomAccordion = ({ project, dispatch, expanded, handleChange }) => {
                 fontSize: "2.4rem",
               }}
             />
-            <Typography fontSize="1.6rem">Project 1</Typography>
+            <Typography fontSize="1.6rem">Project {+project[0] + 1}</Typography>
           </Box>
           <Typography fontSize="1.4rem">{project[1].duration}</Typography>
         </Box>
@@ -121,6 +128,6 @@ const CustomAccordion = ({ project, dispatch, expanded, handleChange }) => {
       </AccordionDetails>
     </Accordion>
   );
-};
+});
 
 export default CustomAccordion;

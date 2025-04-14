@@ -1,11 +1,12 @@
-import { assets } from "../../assets/assets";
+import { memo } from "react";
 
-const ProjectVideoCard = function ({ project, dispatch }) {
+const ProjectVideoCard = memo(function ({ project, dispatch }) {
   const handleSetCurrentProject = () => {
     dispatch({
       type: "SET_CURRENT_PROJECT",
       payload: project,
     });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -15,7 +16,7 @@ const ProjectVideoCard = function ({ project, dispatch }) {
     >
       <div className="curosr-pointer relative w-full overflow-hidden">
         <img
-          src={assets.aiImage}
+          src={project.thumbnail_url}
           alt="img"
           className="w-full rounded-lg object-cover"
         />
@@ -33,17 +34,17 @@ const ProjectVideoCard = function ({ project, dispatch }) {
       </div>
 
       <div className="mt-4 p-2">
-        <h1 className="font-md text-[1.4rem]">something</h1>
+        <h1 className="font-md mb-2 text-[1.3rem]">{project.category}</h1>
         <p className="text-[1.4rem] text-[var(--bg--primary-orange)] sm:text-[1.6rem]">
           {project.title}
         </p>
 
         <span className="mt-5 inline-block text-[1.2rem] text-[var(--text-secondary)]">
-          Uploaded | Jun 08 2022
+          Uploaded by admin 🧑‍💻
         </span>
       </div>
     </div>
   );
-};
+});
 
 export default ProjectVideoCard;
