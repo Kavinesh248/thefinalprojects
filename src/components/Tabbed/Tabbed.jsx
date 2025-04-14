@@ -74,7 +74,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
             flexGrow: 1,
             display: "flex",
             flexDirection: "column",
-            height: "100%", // This is key to make child 100% work
+            height: "100%",
             overflow: "hidden",
           }}
         >
@@ -82,10 +82,13 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
             value="1"
             className="customTabPanel"
             sx={{
-              flexGrow: 1, // ← this fills available space
+              flexGrow: 1,
               overflowY: "auto",
               padding: "1.8rem",
               fontWeight: 400,
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
             }}
           >
             <TabbedCotent description={currentProject.description} />
