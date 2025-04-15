@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import CustomInput from "../components/CustomInput/CustomInput";
 import { web3FormSubmit } from "../services/web3formSubmit";
@@ -7,6 +7,10 @@ import ReferralContainer from "../components/ReferralContainer/ReferralContainer
 function ReferralProgram() {
   const [showReferral, setShowReferral] = useState(false);
   const formRef = useRef();
+
+  useEffect(() => {
+    setShowReferral(true);
+  }, []);
 
   const handleSubmit = async (e) => {
     const result = await web3FormSubmit(e, formRef, toast);
