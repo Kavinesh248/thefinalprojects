@@ -51,7 +51,7 @@ const Navbar = memo(function ({
           </div>
 
           <div className="relative flex items-center gap-4">
-            <div className="flex cursor-pointer items-center gap-2 md:gap-4 lg:gap-6">
+            <div className="flex cursor-pointer items-center gap-2 md:gap-3">
               <div className="flex h-[3.2rem] w-[3.2rem] items-center justify-center rounded-full bg-orange-50 text-[1.5rem] font-semibold text-orange-700 sm:h-[4rem] sm:w-[4rem] sm:text-[1.8rem]">
                 G
               </div>
