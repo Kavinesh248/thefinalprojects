@@ -25,7 +25,7 @@ const TabbedCotent = function ({ description }) {
         <li>
           💬 WhatsApp Group:{" "}
           <a
-            href="https://www.thefinalprojects.com/"
+            href="https://chat.whatsapp.com/Fda7aNosCEI2ofA8KJUB9r"
             target="_blank"
             className="bg-[var(--bg--primary-orange)] text-white"
           >
