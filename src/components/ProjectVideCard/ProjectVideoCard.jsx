@@ -14,11 +14,15 @@ const ProjectVideoCard = memo(function ({ project, dispatch }) {
       className="cursor-pointer rounded-lg bg-[#353535] p-5"
       onClick={handleSetCurrentProject}
     >
-      <div className="curosr-pointer relative w-full overflow-hidden">
+      <div className="curosr-pointer relative aspect-[16/9] w-full overflow-hidden">
         <img
           src={project.thumbnail_url}
           alt="img"
-          className="w-full rounded-lg object-cover"
+          loading="lazy"
+          className="w-full animate-pulse rounded-lg object-cover blur-sm"
+          onLoad={(e) =>
+            e.currentTarget.classList.remove("blur-sm", "animate-pulse")
+          }
         />
 
         <div className="absolute inset-0 z-5 rounded-lg bg-black/40"></div>
