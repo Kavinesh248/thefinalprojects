@@ -11,7 +11,7 @@ const TabbedCotent = function ({ description }) {
         >
           <span>Click Here</span>
         </a>{" "}
-        and get your dream project 🧑‍💻.
+        and get your project 🧑‍💻.
       </h1>
       <p className="mb-15 text-[1.5rem] md:text-[1.8rem]">
         <span className="text-[var(--bg--primary-orange)]">
