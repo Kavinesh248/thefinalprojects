@@ -22,7 +22,6 @@ const CategoryCard = React.memo(function ({
         });
       dispatch({ type: "SET_CURRENT_CATEGORY", payload: category.name });
       dispatch({ type: "SET_CURRENT_PROJECT", payload: projectsData[0] });
-      window.scrollTo({ top: 0, behavior: "smooth" });
       navigate(`/mylearning?category=${encodeURIComponent(category.name)}`);
     } catch (error) {
       console.error("Failed to fetch projects:", error);
