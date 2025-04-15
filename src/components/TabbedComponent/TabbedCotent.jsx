@@ -5,7 +5,7 @@ const TabbedCotent = function ({ description }) {
         Hey Explorer! 🚀 Just one step away to get your dream internal points.
         Take the next step fast! <br />{" "}
         <a
-          href="https://chat.whatsapp.com/Fda7aNosCEI2ofA8KJUB9r"
+          href="https://wa.me/919895682065"
           target="_blank"
           className="mt-4 inline-block w-min gap-1 bg-[var(--bg--primary-orange)] px-2 py-1 text-nowrap"
         >

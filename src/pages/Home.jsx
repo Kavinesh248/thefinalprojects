@@ -45,7 +45,7 @@ const Home = function () {
       </div>
 
       <a
-        href="https://chat.whatsapp.com/Fda7aNosCEI2ofA8KJUB9r"
+        href="https://wa.me/919895682065"
         target="_blank"
         rel="noreferrer noopener"
         className="fixed right-10 bottom-10 z-50 flex cursor-pointer items-center gap-2 rounded-full bg-white p-4 text-[1.2rem] font-semibold text-[var(--bg--primary-orange)] sm:rounded-lg sm:px-6 sm:py-4 sm:text-[1.5rem] lg:text-[1.8rem]"
