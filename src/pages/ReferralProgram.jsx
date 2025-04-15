@@ -87,7 +87,7 @@ function ReferralProgram() {
           placeholder="Contact number or Email"
           name="contact_info"
         />
-        <button className="mt-3 flex w-min items-center gap-2 rounded-lg bg-white px-5 py-2 text-[1.5rem] font-medium text-black md:px-6 md:py-3 lg:text-[1.7rem]">
+        <button className="mt-3 flex w-min cursor-pointer items-center gap-2 rounded-lg bg-white px-5 py-2 text-[1.5rem] font-medium text-black md:px-6 md:py-3 lg:text-[1.7rem]">
           <span>Submit</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
