@@ -31,19 +31,22 @@ const CategoryCard = React.memo(function ({
 
   return (
     <div className="w-full overflow-hidden rounded-lg bg-[var(--bg-secondary)] px-6 py-5 text-white lg:p-6">
-      <div className="relative h-64 w-full overflow-hidden rounded-lg bg-gray-200">
+      <div className="relative h-64 w-full overflow-hidden rounded-lg bg-[#1e1e1e]">
         <img
           src={category?.category_poster_url || defaultImg}
           alt="content"
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+          className="h-full w-full animate-pulse bg-[#1e1e1e] object-cover blur-sm transition-transform duration-300 ease-in-out hover:scale-110"
+          onLoad={(e) =>
+            e.currentTarget.classList.remove("blur-sm", "animate-pulse")
+          }
         />
       </div>
 
       <div className="pt-6 text-[1.5rem] md:text-[1.6rem]">
         <p className="mb-[1.2rem] text-[1.2rem] text-[#74c0fc]">Bundle pack</p>
 
-        <h1 className="mb-[1.8rem] text-[1.6rem]">
+        <h1 className="mb-[1.6rem] text-[1.6rem]">
           {category?.name || defaultName}{" "}
           {category?.description || defaultCategory}
         </h1>

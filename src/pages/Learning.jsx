@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useCategory } from "../utils/useCategory";
@@ -18,6 +18,18 @@ const Learning = function () {
   const handleAccordionChange = useCallback((panelId) => {
     setExpandedAccordion((prev) => (prev === panelId ? null : panelId));
   }, []);
+
+  const memoizedAccordions = useMemo(() => {
+    return Object.entries(projects).map((project) => (
+      <CustomAccordion
+        key={project[0]}
+        project={project}
+        dispatch={dispatch}
+        expanded={expandedAccordion === project[0]}
+        handleChange={() => handleAccordionChange(project[0])}
+      />
+    ));
+  }, [projects, expandedAccordion, dispatch, handleAccordionChange]);
 
   if (isLoading) {
     return <div className="loader"></div>;
@@ -48,15 +60,7 @@ const Learning = function () {
       {displayProject && (
         <div className="hidden h-[53rem] text-white xl:block">
           <div className="flex h-full flex-col gap-7 xl:overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-[var(--bg--primary-orange)] [&::-webkit-scrollbar-track]:bg-gray-100">
-            {Object.entries(projects).map((project) => (
-              <CustomAccordion
-                key={project[0]}
-                project={project}
-                dispatch={dispatch}
-                expanded={expandedAccordion === project[0]}
-                handleChange={() => handleAccordionChange(project[0])}
-              />
-            ))}
+            {memoizedAccordions}
           </div>
         </div>
       )}

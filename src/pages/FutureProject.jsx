@@ -2,32 +2,16 @@ import { useRef } from "react";
 import { assets } from "../assets/assets";
 import { ToastContainer, toast } from "react-toastify";
 import CategoryCard from "../components/CategoryCard/CategoryCard";
+import { web3FormSubmit } from "../services/web3formSubmit";
 
 const FutureProject = function () {
-  const form = useRef();
+  const formRef = useRef();
 
-  const sendEmail = async (e) => {
-    e.preventDefault();
-
-    // Use the fetch API to send the form data to Web3Forms
-    const formData = new FormData(form.current);
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const result = await response.json();
+  const handleSubmit = async (e) => {
+    const result = await web3FormSubmit(e, formRef, toast);
 
     if (result.success) {
-      toast.success("Your email was submitted successfully!", {
-        style: {
-          fontSize: "1.4rem", // or "20px"
-          padding: "16px",
-        },
-      });
       e.target.reset();
-    } else {
-      alert("There was an error sending your message. Please try again.");
     }
   };
 
@@ -44,14 +28,15 @@ const FutureProject = function () {
           </p>
           <form
             className="mt-12 flex text-white"
-            ref={form}
-            onSubmit={sendEmail}
+            ref={formRef}
+            onSubmit={handleSubmit}
           >
             <input
               type="hidden"
               name="access_key"
               value="f025bc40-8155-4c7c-83ec-9e4f89abd397"
-            ></input>
+            />
+
             <input
               type="email"
               name="email"
