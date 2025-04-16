@@ -10,12 +10,7 @@ import deepLearning from "./deepLearning.jpg";
 import laptop from "./laptop.png";
 import demoVideo1 from "./video_demo.mp4";
 import php from "./php.png";
-import aiPdf from "./ai.pdf";
-import deepLearningPdf from "./deeplearning.pdf";
-import pythonPdf from "./python.pdf";
-import phpPdf from "./php.pdf";
-import mlPdf from "./ml.pdf";
-import computervisionPdf from "./computervision.pdf";
+import projectTitles from "./Projects_title.pdf";
 
 export const assets = {
   logo,
@@ -30,10 +25,5 @@ export const assets = {
   php,
   security,
   marketing,
-  aiPdf,
-  deepLearningPdf,
-  pythonPdf,
-  phpPdf,
-  mlPdf,
-  computervisionPdf,
+  projectTitles,
 };

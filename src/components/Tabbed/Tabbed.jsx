@@ -117,7 +117,7 @@ const Tabbed = memo(function ({ dispatch, projects, currentProject }) {
             <h1 className="mb-6 text-[1.5rem] md:text-[1.7rem] lg:text-[1.8rem]">
               Download the titles of the category you chosed 🚀
             </h1>
-            <a href={assets.aiPdf} download="phpProjects.pdf">
+            <a href={assets.projectTitles} download="phpProjects.pdf">
               <button
                 type="button"
                 className="flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.2rem] font-medium transition-colors duration-300 hover:bg-[#f08529] sm:text-[1.5rem] xl:text-[1.6rem]"
