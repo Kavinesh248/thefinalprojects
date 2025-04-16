@@ -35,7 +35,7 @@ function ReferralProgram() {
           className="flex cursor-pointer items-center gap-1 bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.3rem] sm:text-[1.4rem] lg:text-[1.5rem]"
           onClick={() => setShowReferral(true)}
         >
-          <span>Learn more</span>
+          <span>Refer and Earn</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
