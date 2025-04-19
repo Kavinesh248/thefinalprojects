@@ -34,7 +34,7 @@ const CategoryCard = React.memo(function ({
         <img
           src={category?.category_poster_url || defaultImg}
           alt="content"
-          loading="lazy"
+          loading="eager"
           className="h-full w-full animate-pulse bg-[#1e1e1e] object-cover blur-sm transition-transform duration-300 ease-in-out hover:scale-110"
           onLoad={(e) =>
             e.currentTarget.classList.remove("blur-sm", "animate-pulse")
