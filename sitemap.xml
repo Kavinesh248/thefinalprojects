@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.thefinalprojects.com/</loc>
+    <lastmod>2025-04-17T19:49:15+00:00</lastmod>
+  </url>
+
+  <!-- Main Routes -->
+  <url>
+    <loc>https://www.thefinalprojects.com/dashboard</loc>
+  </url>
+  <url>
+    <loc>https://www.thefinalprojects.com/mylearning</loc>
+  </url>
+  <url>
+    <loc>https://www.thefinalprojects.com/futureprojects</loc>
+  </url>
+  <url>
+    <loc>https://www.thefinalprojects.com/referral</loc>
+  </url>
+
+  <!-- Category Routes -->
+  <url>
+    <loc>https://www.thefinalprojects.com/mylearning?category=AI%20Projects</loc>
+  </url>
+  <url>
+    <loc>https://www.thefinalprojects.com/mylearning?category=Web%20Development</loc>
+  </url>
+  <url>
+    <loc>https://www.thefinalprojects.com/mylearning?category=Python</loc>
+  </url>
+  <url>
+    <loc>https://www.thefinalprojects.com/mylearning?category=Deep%20Learning</loc>
+  </url>
+  <url>
+    <loc>https://www.thefinalprojects.com/mylearning?category=Machine%20Learning</loc>
+  </url>
+  <url>
+    <loc>https://www.thefinalprojects.com/mylearning?category=PHP%20Projects</loc>
+  </url>
+
+</urlset>
