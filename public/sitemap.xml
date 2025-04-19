@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Homepage -->
+  <!--  Homepage (Now redirecting to /dashboard) -->
   <url>
-    <loc>https://www.thefinalprojects.com/</loc>
+    <loc>https://www.thefinalprojects.com/dashboard</loc>
     <lastmod>2025-04-17T19:49:15+00:00</lastmod>
   </url>
-
-  <!-- Main Routes -->
+  <!--  Main Routes -->
   <url>
     <loc>https://www.thefinalprojects.com/dashboard</loc>
   </url>
@@ -20,8 +17,7 @@
   <url>
     <loc>https://www.thefinalprojects.com/referral</loc>
   </url>
-
-  <!-- Category Routes -->
+  <!--  Category Routes -->
   <url>
     <loc>https://www.thefinalprojects.com/mylearning?category=AI%20Projects</loc>
   </url>
@@ -40,5 +36,4 @@
   <url>
     <loc>https://www.thefinalprojects.com/mylearning?category=PHP%20Projects</loc>
   </url>
-
 </urlset>
