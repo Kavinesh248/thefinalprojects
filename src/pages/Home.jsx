@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { useEffect, useState } from "react";
 import { CategoryProvider } from "../contexts/CategoryContext";
+import JsonLd from "../components/JsonD/JsonLd";
 
 const Home = function () {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -40,6 +41,7 @@ const Home = function () {
         <article className="flex-1 overflow-y-auto p-8 md:p-12 xl:py-6">
           <CategoryProvider>
             <Outlet />
+            <JsonLd />
           </CategoryProvider>
         </article>
       </div>
