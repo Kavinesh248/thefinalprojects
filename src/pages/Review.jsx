@@ -13,7 +13,7 @@ const Review = function () {
     summary: "",
   });
   const [reviews, setReviews] = useState([]);
-  const [formVisible, setFormVisible] = useState(false);
+  const [formVisible, setFormVisible] = useState(true);
 
   useEffect(() => {
     const savedReviews = localStorage.getItem("reviews");
