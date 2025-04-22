@@ -62,7 +62,7 @@ const Sidebar = memo(function ({
         <NavItem
           to="/review"
           icon="calendar-number"
-          label="Review Page"
+          label="Testimonials"
           onClick={handleCloseSidebar}
         />
       </ul>

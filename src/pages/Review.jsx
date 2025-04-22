@@ -1,20 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CustomInput from "../components/CustomInput/CustomInput";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { capitalize } from "../utils/capitalize";
 
-const Review = function () {
-  const getAvatarUrl = (name) =>
-    `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(name)}`;
+const getAvatarUrl = (name) =>
+  `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(name)}`;
 
+const Review = function () {
   const [formData, setFormData] = useState({
     name: "",
     role: "",
-    title: "",
     summary: "",
   });
   const [reviews, setReviews] = useState([]);
-  const [formVisible, setFormVisible] = useState(true);
+  const [formVisible, setFormVisible] = useState(false);
+
+  useEffect(() => {
+    const savedReviews = localStorage.getItem("reviews");
+    if (savedReviews) {
+      try {
+        const parsedReviews = JSON.parse(savedReviews);
+        setReviews(parsedReviews);
+      } catch (e) {
+        console.error("Failed to parse reviews from localStorage:", e);
+        setReviews([]);
+      }
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -30,13 +42,17 @@ const Review = function () {
       ...formData,
       name: capitalize(formData.name),
       role: capitalize(formData.role),
+      summary: capitalize(formData.summary),
       avatar: getAvatarUrl(formData.name),
+      id: Date.now(),
     };
 
-    setReviews((prev) => [...prev, newReview]);
-    setFormData({ name: "", role: "", title: "", summary: "" });
+    const updatedReviews = [...reviews, newReview];
+    setReviews(updatedReviews);
+    setFormData({ name: "", role: "", summary: "" });
     setFormVisible(false);
-    console.log(reviews);
+
+    localStorage.setItem("reviews", JSON.stringify(updatedReviews));
   };
 
   return (
@@ -120,8 +136,8 @@ const Review = function () {
 
       {!formVisible && (
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
-          {reviews.map((review, idx) => (
-            <ReviewCard key={idx} review={review} />
+          {reviews.map((review) => (
+            <ReviewCard key={review.id} review={review} />
           ))}
         </div>
       )}
