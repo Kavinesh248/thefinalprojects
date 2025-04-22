@@ -61,7 +61,7 @@ const Sidebar = memo(function ({
         />
         <NavItem
           to="/review"
-          icon="chatbubbles-outline"
+          icon="chatbubbles"
           label="Testimonials"
           onClick={handleCloseSidebar}
         />
