@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import CustomInput from "../components/CustomInput/CustomInput";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { capitalize } from "../utils/capitalize";
+import { supabase } from "../utils/supabase-client";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const getAvatarUrl = (name) =>
   `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(name)}`;
@@ -12,22 +14,7 @@ const Review = function () {
     role: "",
     summary: "",
   });
-  const [reviews, setReviews] = useState([]);
-  const [formVisible, setFormVisible] = useState(true);
-
-  useEffect(() => {
-    const savedReviews = localStorage.getItem("reviews");
-    if (savedReviews) {
-      try {
-        const parsedReviews = JSON.parse(savedReviews);
-        setReviews(parsedReviews);
-        setFormVisible(false);
-      } catch (e) {
-        console.error("Failed to parse reviews from localStorage:", e);
-        setReviews([]);
-      }
-    }
-  }, []);
+  const [formVisible, setFormVisible] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -36,6 +23,53 @@ const Review = function () {
     }));
   };
 
+  // Initialize query client
+  const queryClient = useQueryClient();
+
+  // Fetch reviews from Supabase
+  const fetchReviews = async () => {
+    const { data, error } = await supabase.from("reviews").select("*");
+    if (error) throw new Error(error.message);
+    return data;
+  };
+
+  // useQuery to fetch reviews
+  const {
+    data: reviews = [],
+    isFetched,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["reviews"],
+    queryFn: fetchReviews,
+  });
+
+  // useEffect to show the form if there are no reviews
+  useEffect(() => {
+    if (isFetched && reviews.length === 0) {
+      setFormVisible(true);
+    }
+  }, [isFetched, reviews]);
+
+  // useMutation to add a new review
+  const { mutate: addReview } = useMutation({
+    mutationFn: async (review) => {
+      const { data, error } = await supabase
+        .from("reviews")
+        .insert([review])
+        .select();
+      if (error) throw new Error(error.message);
+      return data[0];
+    },
+
+    onSuccess: (newReview) => {
+      queryClient.setQueryData(["reviews"], (old) => [...old, newReview]);
+      setFormData({ name: "", role: "", summary: "" });
+      setFormVisible(false);
+    },
+  });
+
+  // handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -45,16 +79,29 @@ const Review = function () {
       role: capitalize(formData.role),
       summary: capitalize(formData.summary),
       avatar: getAvatarUrl(formData.name),
-      id: Date.now(),
     };
 
-    const updatedReviews = [...reviews, newReview];
-    setReviews(updatedReviews);
-    setFormData({ name: "", role: "", summary: "" });
-    setFormVisible(false);
-
-    localStorage.setItem("reviews", JSON.stringify(updatedReviews));
+    addReview(newReview);
   };
+
+  if (isError) {
+    return (
+      <p className="text-[1.4rem] text-red-500 md:text-[2rem]">
+        Failed to load reviews: {error.message}
+      </p>
+    );
+  }
+
+  if (!isFetched) {
+    return (
+      <div className="text-[1.4rem] text-[var(--bg--primary-orange)] md:text-[2rem]">
+        Loading reviews...
+      </div>
+    );
+  }
+
+  const isFormValid =
+    formData.name.trim() && formData.role.trim() && formData.summary.trim();
 
   return (
     <div className="text-white">
@@ -66,17 +113,18 @@ const Review = function () {
           className="flex cursor-pointer items-center gap-2 rounded-md border-none bg-[var(--bg--primary-orange)] px-4 py-2 text-[1.4rem] font-medium text-white transition-all duration-200 hover:bg-[#e98d41] md:text-[1.5rem] lg:text-[1.7rem]"
           onClick={() => setFormVisible((prev) => !prev)}
         >
-          <span>Add Review</span>
+          <span>{formVisible ? "Cancel" : "Add Review"}</span>
           <ion-icon
             name="add-circle-outline"
             className="text-[1.6rem]"
           ></ion-icon>
         </button>
       </div>
-      {formVisible && (
+
+      {formVisible ? (
         <form
           onSubmit={handleSubmit}
-          className="mt-8 flex w-[30rem] flex-col gap-6 text-[1.4rem] text-white sm:w-[35rem] md:w-[40rem] lg:w-[45rem] lg:gap-8"
+          className="mt-8 flex w-[30rem] flex-col gap-6 text-[1.4rem] sm:w-[35rem] md:w-[40rem] lg:w-[45rem] lg:gap-8"
         >
           <CustomInput
             label="Your name"
@@ -92,12 +140,8 @@ const Review = function () {
             value={formData.role}
             onChange={handleChange}
           />
-
           <div>
-            <label
-              htmlFor="summary"
-              className="mb-4 block tracking-wide text-white"
-            >
+            <label htmlFor="summary" className="mb-4 block tracking-wide">
               Give a detailed review*
             </label>
             <textarea
@@ -108,12 +152,12 @@ const Review = function () {
               value={formData.summary}
               onChange={handleChange}
               rows={5}
-              className="w-full resize-none rounded-md border border-white/20 px-6 py-4 text-white placeholder-gray-400 transition-all duration-200 outline-none hover:border-orange-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/50 lg:px-6 lg:py-4"
+              className="w-full resize-none rounded-md border border-white/20 px-6 py-4 text-white placeholder-gray-400 transition-all duration-200 outline-none hover:border-orange-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/50"
             ></textarea>
           </div>
-
           <button
             type="submit"
+            disabled={!isFormValid}
             className="mt-3 flex w-min cursor-pointer items-center gap-2 rounded-lg bg-white px-5 py-2 text-[1.5rem] font-medium text-black md:px-6 md:py-3 lg:text-[1.7rem]"
           >
             <span>Submit</span>
@@ -133,9 +177,7 @@ const Review = function () {
             </svg>
           </button>
         </form>
-      )}
-
-      {!formVisible && (
+      ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
