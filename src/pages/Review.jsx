@@ -21,6 +21,7 @@ const Review = function () {
       try {
         const parsedReviews = JSON.parse(savedReviews);
         setReviews(parsedReviews);
+        setFormVisible(false);
       } catch (e) {
         console.error("Failed to parse reviews from localStorage:", e);
         setReviews([]);
