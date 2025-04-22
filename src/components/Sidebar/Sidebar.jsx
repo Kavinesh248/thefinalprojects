@@ -55,7 +55,7 @@ const Sidebar = memo(function ({
         />
         <NavItem
           to="/referral"
-          icon="calendar-number"
+          icon="people"
           label="Referral Program"
           onClick={handleCloseSidebar}
         />
