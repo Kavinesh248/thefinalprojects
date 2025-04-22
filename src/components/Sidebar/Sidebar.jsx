@@ -59,6 +59,12 @@ const Sidebar = memo(function ({
           label="Referral Program"
           onClick={handleCloseSidebar}
         />
+        <NavItem
+          to="/review"
+          icon="calendar-number"
+          label="Review Page"
+          onClick={handleCloseSidebar}
+        />
       </ul>
     </div>
   );

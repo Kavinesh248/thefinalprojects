@@ -12,6 +12,7 @@ import ErrorPage from "./pages/Error";
 import ReferralProgram from "./pages/ReferralProgram";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
+import Review from "./pages/Review";
 // import { CategoryProvider } from "./contexts/CategoryContext";
 
 const router = createBrowserRouter([
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "mylearning", element: <Learning /> },
       { path: "futureprojects", element: <FutureProject /> },
       { path: "referral", element: <ReferralProgram /> },
+      { path: "review", element: <Review /> },
     ],
   },
   {

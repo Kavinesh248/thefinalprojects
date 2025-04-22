@@ -47,7 +47,7 @@ const CategoryProvider = function ({ children }) {
       dispatch({ type: "LOADING" });
       try {
         const categories = await getCategories();
-        const currentCategory = params.get("category") || "Web Development";
+        const currentCategory = params.get("category") || "Machine Learning";
         const projects = await getProjects(currentCategory);
 
         dispatch({

@@ -11,6 +11,7 @@ import laptop from "./laptop.png";
 import demoVideo1 from "./video_demo.mp4";
 import php from "./php.png";
 import projectTitles from "./Projects_title.pdf";
+import demoAvatar from "./avatar-demo.jpg";
 
 export const assets = {
   logo,
@@ -26,4 +27,5 @@ export const assets = {
   security,
   marketing,
   projectTitles,
+  demoAvatar,
 };
