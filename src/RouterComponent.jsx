@@ -4,9 +4,10 @@ import {
   Navigate,
 } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import Dashboard from "./pages/Dashboard";
 
 const MainLayout = lazy(() => import("./pages/MainLayout"));
-const Dashboard = lazy(() => import("./pages/Dashboard"));
+// const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Learning = lazy(() => import("./pages/Learning"));
 const FutureProject = lazy(() => import("./pages/FutureProject"));
 const ReferralProgram = lazy(() => import("./pages/ReferralProgram"));
@@ -26,11 +27,7 @@ const router = createBrowserRouter([
       { index: true, element: <Navigate to="/dashboard" replace /> },
       {
         path: "dashboard",
-        element: (
-          <Suspense fallback={<div>Loading Dashboard...</div>}>
-            <Dashboard />
-          </Suspense>
-        ),
+        element: <Dashboard />,
       },
       {
         path: "mylearning",
