@@ -1,13 +1,11 @@
 import { Outlet } from "react-router-dom";
-// import Navbar from "../components/Navbar/Navbar";
-// import Sidebar from "../components/Sidebar/Sidebar";
 import { lazy, useEffect, useState } from "react";
 import { CategoryProvider } from "../contexts/CategoryContext";
 
 const Navbar = lazy(() => import("../components/Navbar/Navbar"));
 const Sidebar = lazy(() => import("../components/Sidebar/Sidebar"));
 
-const Home = function () {
+const MainLayout = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
@@ -17,10 +15,7 @@ const Home = function () {
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
+    return () => document.body.classList.remove("overflow-hidden");
   }, [isSidebarVisible]);
 
   return (
@@ -30,7 +25,6 @@ const Home = function () {
         setIsSidebarVisible={setIsSidebarVisible}
         setIsOverlayVisible={setIsOverlayVisible}
       />
-
       <div className="h-full lg:flex lg:flex-col">
         <div className="sticky top-0 z-10">
           <Navbar
@@ -39,7 +33,6 @@ const Home = function () {
             setIsOverlayVisible={setIsOverlayVisible}
           />
         </div>
-
         <article className="flex-1 overflow-y-auto p-8 md:p-12 xl:py-6">
           <CategoryProvider>
             <Outlet />
@@ -63,4 +56,4 @@ const Home = function () {
   );
 };
 
-export default Home;
+export default MainLayout;
