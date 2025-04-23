@@ -29,7 +29,6 @@ const Sidebar = memo(function ({
           src={assets.logo}
           className="w-[12rem] sm:w-[15rem] md:w-[18rem]"
           alt="brand logo"
-          loading="lazy"
           onClick={handleCloseSidebar}
         />
       </NavLink>

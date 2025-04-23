@@ -3,16 +3,15 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Learning from "./pages/Learning";
-import FutureProject from "./pages/FutureProject";
-import Home from "./pages/Home";
-import ErrorPage from "./pages/Error";
-import ReferralProgram from "./pages/ReferralProgram";
-import SignIn from "./components/SignIn/SignIn";
-import SignUp from "./components/SignUp/SignUp";
-import Review from "./pages/Review";
+import { lazy, Suspense } from "react";
+
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Learning = lazy(() => import("./pages/Learning"));
+const FutureProject = lazy(() => import("./pages/FutureProject"));
+const Home = lazy(() => import("./pages/Home"));
+const ErrorPage = lazy(() => import("./pages/Error"));
+const ReferralProgram = lazy(() => import("./pages/ReferralProgram"));
+const Review = lazy(() => import("./pages/Review"));
 
 const router = createBrowserRouter([
   {
@@ -28,19 +27,14 @@ const router = createBrowserRouter([
       { path: "review", element: <Review /> },
     ],
   },
-  {
-    path: "/login",
-    element: <Login />,
-    children: [
-      { index: true, element: <Navigate to="/login/signin" replace /> },
-      { path: "signin", element: <SignIn /> },
-      { path: "signup", element: <SignUp /> },
-    ],
-  },
 ]);
 
 const App = function () {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />;
+    </Suspense>
+  );
 };
 
 export default App;

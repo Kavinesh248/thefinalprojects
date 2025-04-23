@@ -34,7 +34,6 @@ const Navbar = memo(function ({
           <img
             src={assets.logo}
             alt="logo"
-            loading="lazy"
             className="h-[2.2rem] sm:h-[2.8rem] md:h-[3.2rem]"
             onClick={() => navigate("/")}
           />

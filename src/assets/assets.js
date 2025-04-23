@@ -1,4 +1,4 @@
-import logo from "./finalLogo.png";
+import logo from "./finalLogo.webp";
 import contentImg from "./full_stack_thumb.png";
 import mlImage from "./machine.jpg";
 import aiImage from "./ai.webp";
