@@ -32,6 +32,8 @@ const CategoryCard = React.memo(function ({
     <div className="w-full overflow-hidden rounded-lg bg-[var(--bg-secondary)] px-6 py-5 text-white lg:p-6">
       <div className="relative h-64 w-full overflow-hidden rounded-lg bg-[#1e1e1e]">
         <img
+          loading="eager"
+          fetchpriority="high"
           src={category?.category_poster_url || defaultImg}
           alt="content"
           className="h-full w-full bg-[#1e1e1e] object-cover transition-transform duration-300 ease-in-out hover:scale-110"
