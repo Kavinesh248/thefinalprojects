@@ -44,7 +44,7 @@ const CategoryProvider = function ({ children }) {
   const [params] = useSearchParams();
 
   preloadImage(
-    "https://ik.imagekit.io/40czoqvvk/category_thumbnail_optimized/Machine%20Learning.webp?tr=w-1280,f-auto",
+    "https://ik.imagekit.io/40czoqvvk/category_thumbnail_optimized/Machine%20Learning.webp?tr=w-300,h-200",
   );
 
   useEffect(() => {
