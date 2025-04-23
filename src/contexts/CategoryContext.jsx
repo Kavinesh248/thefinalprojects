@@ -1,6 +1,7 @@
 import { createContext, useEffect, useReducer } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getCategories, getProjects } from "../services/apiCategory";
+import { preloadImage } from "../utils/preload";
 
 const CategoryContext = createContext();
 
@@ -41,6 +42,10 @@ const reducer = (state, action) => {
 const CategoryProvider = function ({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [params] = useSearchParams();
+
+  preloadImage(
+    "https://ik.imagekit.io/40czoqvvk/category_thumbnail_optimized/Machine%20Learning.webp?tr=w-300,h-200",
+  );
 
   useEffect(() => {
     const fetchData = async () => {
