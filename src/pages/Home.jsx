@@ -1,8 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
-import Sidebar from "../components/Sidebar/Sidebar";
-import { useEffect, useState } from "react";
+// import Navbar from "../components/Navbar/Navbar";
+// import Sidebar from "../components/Sidebar/Sidebar";
+import { lazy, useEffect, useState } from "react";
 import { CategoryProvider } from "../contexts/CategoryContext";
+
+const Navbar = lazy(() => import("../components/Navbar/Navbar"));
+const Sidebar = lazy(() => import("../components/Sidebar/Sidebar"));
 
 const Home = function () {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);

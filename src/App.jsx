@@ -12,6 +12,7 @@ const Home = lazy(() => import("./pages/Home"));
 const ErrorPage = lazy(() => import("./pages/Error"));
 const ReferralProgram = lazy(() => import("./pages/ReferralProgram"));
 const Review = lazy(() => import("./pages/Review"));
+import("./pages/Dashboard");
 
 const router = createBrowserRouter([
   {
