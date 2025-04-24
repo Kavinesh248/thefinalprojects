@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { getProjects } from "../../services/apiCategory";
+import { usePreloadImage } from "../../utils/preload";
 
 const CategoryCard = React.memo(function ({
   category,
@@ -10,6 +11,9 @@ const CategoryCard = React.memo(function ({
   defaultName,
 }) {
   const navigate = useNavigate();
+
+  const imageUrl = `${category?.category_poster_url || defaultImg}?tr=w-350,h-200`;
+  usePreloadImage(imageUrl);
 
   const handleViewAll = async () => {
     try {
@@ -32,10 +36,7 @@ const CategoryCard = React.memo(function ({
     <div className="w-full overflow-hidden rounded-lg bg-[var(--bg-secondary)] px-6 py-5 text-white lg:p-6">
       <div className="relative h-64 w-full overflow-hidden rounded-lg bg-[#1e1e1e]">
         <picture>
-          <source
-            media="(max-width: 500px)"
-            srcSet={`${category?.category_poster_url || defaultImg}?tr=w-350,h-200`}
-          />
+          <source media="(max-width: 500px)" srcSet={imageUrl} />
           <img
             loading="eager"
             fetchpriority="high"
