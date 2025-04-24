@@ -1,7 +1,7 @@
 import { lazy } from "react";
 
-const Router = lazy(() => import("./RouterComponent"));
+const RouterComponent = lazy(() => import("./RouterComponent"));
 
 export default function App() {
-  return <Router />;
+  return <RouterComponent />;
 }

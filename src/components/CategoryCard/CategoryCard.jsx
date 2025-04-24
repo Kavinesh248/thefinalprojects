@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import { getProjects } from "../../services/apiCategory";
 
 const CategoryCard = React.memo(function ({
@@ -10,6 +10,9 @@ const CategoryCard = React.memo(function ({
   defaultName,
 }) {
   const navigate = useNavigate();
+  const [loaded, setLoaded] = useState(false);
+  const realImage = `${category?.category_poster_url || defaultImg}?tr=w-500,h-300`;
+  const blurredImage = `${category?.category_poster_url || defaultImg}?tr=w-20,h-12,bl-10`; // small + blurred
 
   const handleViewAll = async () => {
     try {
@@ -34,13 +37,18 @@ const CategoryCard = React.memo(function ({
         <picture>
           <source
             media="(max-width: 500px)"
-            srcSet={`${category?.category_poster_url || defaultImg}?tr=w-350,h-200`}
+            srcSet={realImage.replace("w-500,h-300", "w-350,h-200")}
           />
           <img
             loading="eager"
             fetchpriority="high"
-            src={`${category?.category_poster_url || defaultImg}?tr=w-500,h-300`}
+            src={loaded ? realImage : blurredImage}
             alt="content"
+            onLoad={() => setLoaded(true)}
+            style={{
+              filter: loaded ? "none" : "blur(20px)",
+              transition: "filter 0.3s ease-out",
+            }}
             className="h-full w-full bg-[#1e1e1e] object-cover transition-transform duration-300 ease-in-out hover:scale-110"
           />
         </picture>
