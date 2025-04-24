@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function usePreloadImage(url) {
+export function usePreloadImage(url) {
   useEffect(() => {
     if (!url) return;
     const link = document.createElement("link");
