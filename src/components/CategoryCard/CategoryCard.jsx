@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { getProjects } from "../../services/apiCategory";
-import { usePreloadImage } from "../../utils/preload";
+import { usePreloadImage } from "../../utils/usePreloadImage";
 
 const CategoryCard = React.memo(function ({
   category,

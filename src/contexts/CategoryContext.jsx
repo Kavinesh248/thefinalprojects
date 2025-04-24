@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getCategories, getProjects } from "../services/apiCategory";
-import { preloadImage } from "../utils/preload";
+import { preloadImage } from "../utils/usePreloadImage";
 
 const CategoryContext = createContext();
 
