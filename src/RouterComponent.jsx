@@ -5,8 +5,9 @@ import {
 } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Dashboard from "./pages/Dashboard";
+import MainLayout from "./pages/MainLayout";
 
-const MainLayout = lazy(() => import("./pages/MainLayout"));
+// const MainLayout = lazy(() => import("./pages/MainLayout"));
 const Learning = lazy(() => import("./pages/Learning"));
 const FutureProject = lazy(() => import("./pages/FutureProject"));
 const ReferralProgram = lazy(() => import("./pages/ReferralProgram"));
@@ -17,9 +18,9 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Suspense fallback={<div className="loader"></div>}>
-        <MainLayout />
-      </Suspense>
+      // <Suspense fallback={<div className="loader"></div>}>
+      <MainLayout />
+      // </Suspense>
     ),
     errorElement: <ErrorPage />,
     children: [
