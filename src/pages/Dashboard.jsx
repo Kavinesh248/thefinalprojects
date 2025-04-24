@@ -16,15 +16,14 @@ const Dashboard = function () {
         Project Categories
       </h1>
       <div className="grid gap-[1.8rem] sm:grid-cols-2 md:gap-[2.4rem] lg:gap-[2.8rem] xl:grid-cols-3">
-        {Object.values(categories).map((category) => {
-          return (
-            <CategoryCard
-              key={category.name}
-              category={category}
-              dispatch={dispatch}
-            />
-          );
-        })}
+        {Object.values(categories).map((category, index) => (
+          <CategoryCard
+            key={category.name}
+            category={category}
+            dispatch={dispatch}
+            isLCP={index === 0}
+          />
+        ))}
       </div>
     </div>
   );
