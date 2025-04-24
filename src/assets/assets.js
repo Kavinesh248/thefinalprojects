@@ -1,4 +1,4 @@
-import logo from "./finalLogo.webp";
+import logo from "./finalLogoWebp.webp";
 import contentImg from "./full_stack_thumb.png";
 import mlImage from "./machine.jpg";
 import aiImage from "./ai.webp";
@@ -7,7 +7,7 @@ import security from "./security.jpeg";
 import marketing from "./marketing.avif";
 import python from "./python.png";
 import deepLearning from "./deepLearning.jpg";
-import laptop from "./laptop.png";
+import laptop from "./laptop.webp";
 import demoVideo1 from "./video_demo.mp4";
 import php from "./php.png";
 import projectTitles from "./Projects_title.pdf";
