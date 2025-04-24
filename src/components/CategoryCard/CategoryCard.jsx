@@ -31,13 +31,19 @@ const CategoryCard = React.memo(function ({
   return (
     <div className="w-full overflow-hidden rounded-lg bg-[var(--bg-secondary)] px-6 py-5 text-white lg:p-6">
       <div className="relative h-64 w-full overflow-hidden rounded-lg bg-[#1e1e1e]">
-        <img
-          loading="eager"
-          fetchpriority="high"
-          src={category?.category_poster_url || defaultImg}
-          alt="content"
-          className="h-full w-full bg-[#1e1e1e] object-cover transition-transform duration-300 ease-in-out hover:scale-110"
-        />
+        <picture>
+          <source
+            media="(max-width: 500px)"
+            srcSet={`${category?.category_poster_url || defaultImg}?tr=w-350,h-200`}
+          />
+          <img
+            loading="eager"
+            fetchpriority="high"
+            src={`${category?.category_poster_url || defaultImg}?tr=w-500,h-300`}
+            alt="content"
+            className="h-full w-full bg-[#1e1e1e] object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+          />
+        </picture>
       </div>
 
       <div className="pt-6 text-[1.5rem] md:text-[1.6rem]">
