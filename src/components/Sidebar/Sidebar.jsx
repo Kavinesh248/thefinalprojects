@@ -27,9 +27,10 @@ const Sidebar = memo(function ({
       <NavLink to="/">
         <img
           src={assets.logo}
+          alt="Logo"
+          width="300"
+          height="100"
           className="w-[12rem] sm:w-[15rem] md:w-[18rem]"
-          alt="brand logo"
-          onClick={handleCloseSidebar}
         />
       </NavLink>
 
